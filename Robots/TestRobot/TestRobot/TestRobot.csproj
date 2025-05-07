@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AlgoLanguage>Python</AlgoLanguage>
+    <IncludeSource>True</IncludeSource>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="TestRobot.py" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="TestRobot.py">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="*-*" />
+    <PackageReference Include="pythonnet" Version="3.0.5" />
+  </ItemGroup>
+</Project>
