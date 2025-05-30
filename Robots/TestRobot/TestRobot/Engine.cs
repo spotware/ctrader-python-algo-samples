@@ -8,27 +8,14 @@ namespace cAlgo.Robots;
 public class TestRobot : Robot
 {
     private dynamic _robot;
-    private IntPtr _pythonThreadState;
-    private const string MainPythonFile = $"{nameof(TestRobot)}.{nameof(TestRobot)}.py";
+    private const string MainPythonFile = "TestRobot.py";
 
     protected override void OnStart()
     {
-        var pythonDllPath = Environment.GetEnvironmentVariable("__CT_ALGOHOST_ENDPOINT_PYTHON_DLL_PATH");
-        if (string.IsNullOrEmpty(pythonDllPath))
-            throw new InvalidOperationException("Python runtime not found! Please recompile and restart robot");
-
-        if (!PythonEngine.IsInitialized)
-        {
-            Runtime.PythonDLL = pythonDllPath;
-            PythonEngine.Initialize();
-        }
-
-        _pythonThreadState = PythonEngine.BeginAllowThreads();
-
         using (Py.GIL())
         {
             var pythonFolder = EngineHelper.CreatePythonFolder();
-            EngineHelper.CopyPythonResources(pythonFolder, MainPythonFile, nameof(TestRobot));
+            EngineHelper.CopyPythonResources(pythonFolder);
 
             dynamic sys = Py.Import("sys");
             sys.path.append(pythonFolder);
@@ -74,10 +61,5 @@ public class TestRobot : Robot
     {
         using (Py.GIL())
             _robot.OnStop();
-
-        PythonEngine.EndAllowThreads(_pythonThreadState);
-
-        if (PythonEngine.IsInitialized)
-            PythonEngine.Shutdown();
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRobot", "TestRobot\TestRobot.csproj", "{ad6ed3c3-fc06-4fe1-8f6a-2c687ac5760a}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRobot", "TestRobot\TestRobot.csproj", "{3620662e-8882-490f-86a4-5ef434d2974c}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ad6ed3c3-fc06-4fe1-8f6a-2c687ac5760a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ad6ed3c3-fc06-4fe1-8f6a-2c687ac5760a}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ad6ed3c3-fc06-4fe1-8f6a-2c687ac5760a}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ad6ed3c3-fc06-4fe1-8f6a-2c687ac5760a}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3620662e-8882-490f-86a4-5ef434d2974c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3620662e-8882-490f-86a4-5ef434d2974c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3620662e-8882-490f-86a4-5ef434d2974c}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3620662e-8882-490f-86a4-5ef434d2974c}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

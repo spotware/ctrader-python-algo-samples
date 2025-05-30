@@ -15,16 +15,36 @@ internal class EngineHelper
         return pyScriptsDirectory.FullName;
     }
 
-    internal static void CopyPythonResources(string pythonFolder, string mainPythonFile, string algoName)
+    internal static void CopyPythonResources(string pythonFolder)
     {
         var pythonResources = EmbeddedResourceProvider.List()
-            .Where(res => res.ToLower().EndsWith(".py") && !res.Equals(mainPythonFile, StringComparison.OrdinalIgnoreCase))
+            .Where(res => res.ToLower().EndsWith(".py"))
             .ToList();
 
-        foreach (var pythonResource in pythonResources)
+        foreach (var resource in pythonResources)
         {
-            var pythonCode = EmbeddedResourceProvider.ReadText(pythonResource);
-            File.WriteAllText(Path.Combine(pythonFolder, pythonResource.Replace($"{algoName}.", "")), pythonCode);
+            var firstDot = resource.IndexOf('.');
+            if (firstDot <= 0)
+                continue;
+
+            var pathWithoutNamespace = resource[(firstDot + 1)..];
+            var lastDot = pathWithoutNamespace.LastIndexOf('.');
+            if (lastDot <= 0)
+                continue;
+
+            var extension = pathWithoutNamespace[lastDot..];
+            var pathWithoutExtension = pathWithoutNamespace[..lastDot];
+            var directoryPath =
+                Path.Combine(pythonFolder, pathWithoutExtension.Replace('.', Path.DirectorySeparatorChar));
+            var filePath = directoryPath + extension;
+            var directory = Path.GetDirectoryName(filePath);
+
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            using (var stream = EmbeddedResourceProvider.ReadStream(resource))
+            using (var fileStream = File.Create(filePath))
+                stream.CopyTo(fileStream);
         }
     }
 

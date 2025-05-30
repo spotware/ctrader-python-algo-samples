@@ -8,8 +8,7 @@ namespace cAlgo.Indicators;
 public class TestIndicator : Indicator
 {
     private dynamic _indicator;
-    private IntPtr _pythonThreadState;
-    private const string MainPythonFile = $"{nameof(TestIndicator)}.{nameof(TestIndicator)}.py";
+    private const string MainPythonFile = "TestIndicator.py";
 
 
     [Output("Main")]
@@ -17,22 +16,10 @@ public class TestIndicator : Indicator
 
     protected override void Initialize()
     {
-        var pythonDllPath = Environment.GetEnvironmentVariable("__CT_ALGOHOST_ENDPOINT_PYTHON_DLL_PATH");
-        if (string.IsNullOrEmpty(pythonDllPath))
-            throw new InvalidOperationException("Python runtime not found! Please recompile and restart indicator");
-
-        if (!PythonEngine.IsInitialized)
-        {
-            Runtime.PythonDLL = pythonDllPath;
-            PythonEngine.Initialize();
-        }
-
-        _pythonThreadState = PythonEngine.BeginAllowThreads();
-
         using (Py.GIL())
         {
             var pythonFolder = EngineHelper.CreatePythonFolder();
-            EngineHelper.CopyPythonResources(pythonFolder, MainPythonFile, nameof(TestIndicator));
+            EngineHelper.CopyPythonResources(pythonFolder);
 
             dynamic sys = Py.Import("sys");
             sys.path.append(pythonFolder);
@@ -57,7 +44,7 @@ public class TestIndicator : Indicator
                     dynamic pythonClass = scope.Get(className);
                     _indicator = pythonClass();
 
-                    _indicator.OnStart();
+                    _indicator.Initialize();
                 }
                 catch (Exception ex)
                 {
@@ -78,10 +65,5 @@ public class TestIndicator : Indicator
     {
         using (Py.GIL())
             _indicator.OnDestroy();
-
-        PythonEngine.EndAllowThreads(_pythonThreadState);
-
-        if (PythonEngine.IsInitialized)
-            PythonEngine.Shutdown();
     }
 }
