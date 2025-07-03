@@ -7,8 +7,8 @@ namespace cAlgo.Indicators;
 [Indicator(AccessRights = AccessRights.None)]
 public class TestIndicator : Indicator
 {
-    private dynamic _indicator;
-    private const string MainPythonFile = "TestIndicator.py";
+    private IndicatorBridge _indicator;
+    private const string MainPythonFile = "TestIndicator_main.py";
 
 
     [Output("Main")]
@@ -16,14 +16,10 @@ public class TestIndicator : Indicator
 
     protected override void Initialize()
     {
+        EngineHelper.Initialize(Print);
+
         using (Py.GIL())
         {
-            var pythonFolder = EngineHelper.CreatePythonFolder();
-            EngineHelper.CopyPythonResources(pythonFolder);
-
-            dynamic sys = Py.Import("sys");
-            sys.path.append(pythonFolder);
-
             var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
             var className = EngineHelper.GetClassName(code);
 
@@ -42,7 +38,7 @@ public class TestIndicator : Indicator
                     }
 
                     dynamic pythonClass = scope.Get(className);
-                    _indicator = pythonClass();
+                    _indicator = new IndicatorBridge(pythonClass());
 
                     _indicator.Initialize();
                 }

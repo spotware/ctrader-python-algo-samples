@@ -6,13 +6,20 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Compile Remove="TestRobot.py" />
+    <Compile Remove="**\*.py" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <EmbeddedResource Include="TestRobot.py">
+    <EmbeddedResource Include="**\*.py">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="requirements.txt" />
+    <Content Include="requirements.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -7,19 +7,15 @@ namespace cAlgo.Robots;
 [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
 public class TestRobot : Robot
 {
-    private dynamic _robot;
-    private const string MainPythonFile = "TestRobot.py";
+    private RobotBridge _robot;
+    private const string MainPythonFile = "TestRobot_main.py";
 
     protected override void OnStart()
     {
+        EngineHelper.Initialize(Print);
+
         using (Py.GIL())
         {
-            var pythonFolder = EngineHelper.CreatePythonFolder();
-            EngineHelper.CopyPythonResources(pythonFolder);
-
-            dynamic sys = Py.Import("sys");
-            sys.path.append(pythonFolder);
-
             var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
             var className = EngineHelper.GetClassName(code);
 
@@ -38,7 +34,7 @@ public class TestRobot : Robot
                     }
 
                     dynamic pythonClass = scope.Get(className);
-                    _robot = pythonClass();
+                    _robot = new RobotBridge(pythonClass());
 
                     _robot.OnStart();
                 }
@@ -61,5 +57,23 @@ public class TestRobot : Robot
     {
         using (Py.GIL())
             _robot.OnStop();
+    }
+
+    protected override void OnBar()
+    {
+        using (Py.GIL())
+            _robot.OnBar();
+    }
+
+    protected override void OnPositionClosed(Position position)
+    {
+        using (Py.GIL())
+            _robot.OnPositionClosed(position);
+    }
+
+    protected override void OnPositionOpened(Position openedPosition)
+    {
+        using (Py.GIL())
+            _robot.OnPositionOpened(openedPosition);
     }
 }

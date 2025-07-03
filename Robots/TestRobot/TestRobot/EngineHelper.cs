@@ -1,50 +1,95 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Python.Runtime;
 
 namespace cAlgo.Robots;
 
 internal class EngineHelper
 {
-    internal static string CreatePythonFolder()
-    {
-        var pyScriptsDirectory = new DirectoryInfo(Path.Combine("py_scripts"));
-        if (!pyScriptsDirectory.Exists)
-            pyScriptsDirectory.Create();
+    private static Dictionary<string, string> _moduleCodeMap = new();
 
-        return pyScriptsDirectory.FullName;
+    public static void Initialize(Action<object[]> printer)
+    {
+        InjectPrintDelegate(printer);
+        InitializePythonCodeModuleMap();
     }
 
-    internal static void CopyPythonResources(string pythonFolder)
+    private static void InitializePythonCodeModuleMap()
     {
+        _moduleCodeMap = new Dictionary<string, string>();
+
+        CopyPythonResources((fileName, resourceName) =>
+        {
+            using var stream = EmbeddedResourceProvider.ReadStream(resourceName);
+            using var reader = new StreamReader(stream);
+            var moduleName = Path.GetFileNameWithoutExtension(fileName);
+            var pyCode = reader.ReadToEnd();
+            _moduleCodeMap[moduleName] = pyCode;
+        });
+
+        _moduleCodeMap["traceback"] = PythonHooks.DummyTraceback;
+        SetupPythonSourceCodeModulesInMemory();
+    }
+
+    private static void SetupPythonSourceCodeModulesInMemory()
+    {
+        using (Py.GIL())
+        {
+            dynamic main = Py.Import("__main__");
+            PyObject mainDict = main.GetAttr("__dict__");
+            PythonEngine.Exec(PythonHooks.InMemoryModuleLoaderPythonCode, mainDict.As<PyDict>());
+
+            using var pyDict = new PyDict();
+            foreach (var kv in _moduleCodeMap)
+                pyDict[new PyString(kv.Key)] = new PyString(kv.Value);
+
+            main.install_inmemory_importer(pyDict, false);
+        }
+    }
+
+    public static void InjectPrintDelegate(Action<object[]> printer)
+    {
+        using (Py.GIL())
+        {
+            dynamic builtins = Py.Import("builtins");
+            builtins.__setattr__("cs_print", new Action<PyObject[]>(printer).ToPython());
+            PythonEngine.Exec(@"
+import builtins
+
+def py_print(*args):
+    builtins.cs_print(args)
+
+builtins.print = py_print
+");
+        }
+    }
+
+    internal static void CopyPythonResources(Action<string, string> readFileAction)
+    {
+        if (!EmbeddedResourceProvider.TryGetPythonManifest(out var pythonManifest))
+            throw new Exception("Python manifest not found");
+
+        var resourceNameAndPaths = new Dictionary<string, FileInfo>();
+
+        foreach (var pythonFile in pythonManifest.PythonFiles)
+        {
+            var pythonFileInfo = new FileInfo(pythonFile.Replace('/', Path.DirectorySeparatorChar));
+            var resourceName = pythonFile.Replace('/', '.');
+            resourceNameAndPaths[$"{pythonManifest.RootNamespace}.{resourceName}"] = pythonFileInfo;
+        }
+
         var pythonResources = EmbeddedResourceProvider.List()
             .Where(res => res.ToLower().EndsWith(".py"))
             .ToList();
 
-        foreach (var resource in pythonResources)
+        foreach (var pythonResource in pythonResources)
         {
-            var firstDot = resource.IndexOf('.');
-            if (firstDot <= 0)
-                continue;
+            if (!resourceNameAndPaths.TryGetValue(pythonResource, out var fileInfo))
+                throw new Exception($"Python resource '{pythonResource}' not found in python manifest");
 
-            var pathWithoutNamespace = resource[(firstDot + 1)..];
-            var lastDot = pathWithoutNamespace.LastIndexOf('.');
-            if (lastDot <= 0)
-                continue;
-
-            var extension = pathWithoutNamespace[lastDot..];
-            var pathWithoutExtension = pathWithoutNamespace[..lastDot];
-            var directoryPath =
-                Path.Combine(pythonFolder, pathWithoutExtension.Replace('.', Path.DirectorySeparatorChar));
-            var filePath = directoryPath + extension;
-            var directory = Path.GetDirectoryName(filePath);
-
-            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
-                Directory.CreateDirectory(directory);
-
-            using (var stream = EmbeddedResourceProvider.ReadStream(resource))
-            using (var fileStream = File.Create(filePath))
-                stream.CopyTo(fileStream);
+            readFileAction(fileInfo.FullName, pythonResource);
         }
     }
 

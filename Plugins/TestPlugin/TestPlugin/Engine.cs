@@ -7,19 +7,15 @@ namespace cAlgo.Plugins;
 [Plugin(AccessRights = AccessRights.None)]
 public class TestPlugin : Plugin
 {
-    private dynamic _plugin;
-    private const string MainPythonFile = "TestPlugin.py";
+    private PluginBridge _plugin;
+    private const string MainPythonFile = "TestPlugin_main.py";
 
     protected override void OnStart()
     {
+        EngineHelper.Initialize(Print);
+
         using (Py.GIL())
         {
-            var pythonFolder = EngineHelper.CreatePythonFolder();
-            EngineHelper.CopyPythonResources(pythonFolder);
-
-            dynamic sys = Py.Import("sys");
-            sys.path.append(pythonFolder);
-
             var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
             var className = EngineHelper.GetClassName(code);
 
@@ -38,7 +34,7 @@ public class TestPlugin : Plugin
                     }
 
                     dynamic pythonClass = scope.Get(className);
-                    _plugin = pythonClass();
+                    _plugin = new PluginBridge(pythonClass());
 
                     _plugin.OnStart();
                 }

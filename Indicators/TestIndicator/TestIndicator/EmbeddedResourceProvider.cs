@@ -1,11 +1,14 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 
 namespace cAlgo.Indicators;
 
 internal class EmbeddedResourceProvider
 {
+    public const string PythonManifestFileName = "EmbeddedResources.manifest.json";
+
     internal static string[] List()
     {
         var assembly = typeof(EmbeddedResourceProvider).Assembly;
@@ -33,5 +36,18 @@ internal class EmbeddedResourceProvider
     {
         var assembly = typeof(EmbeddedResourceProvider).Assembly;
         return assembly.GetManifestResourceStream(name);
+    }
+
+    public static bool TryGetPythonManifest(out PythonManifest pythonManifest)
+    {
+        pythonManifest = null;
+        var pythonManifestJson = ReadText(PythonManifestFileName);
+
+        if (string.IsNullOrEmpty(pythonManifestJson))
+            return false;
+        
+        pythonManifest = JsonSerializer.Deserialize<PythonManifest>(pythonManifestJson);
+
+        return true;
     }
 }
