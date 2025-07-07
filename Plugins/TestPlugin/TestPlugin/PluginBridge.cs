@@ -1,5 +1,6 @@
-namespace cAlgo.Plugins;
 using Python.Runtime;
+
+namespace cAlgo.Plugins;
 
 internal class PluginBridge
 {
