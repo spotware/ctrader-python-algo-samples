@@ -10,7 +10,7 @@ from robot_wrapper import *
 
 class TestRobot():
     def on_start(self):
-        api.Print("Robot started!")
+        print("Robot started!")
         # To learn more about cTrader Algo visit our Help Center:
         # https://help.ctrader.com/ctrader-algo/
 

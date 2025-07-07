@@ -17,10 +17,10 @@ def execute_market_order(trade_side, symbol_name, volume, label=None, stop_loss_
         Trade Result
         
     Examples:
-        execute_market_order(api.TradeType.Buy, symbol.Name, 10000)
-        execute_market_order(api.TradeType.Sell, symbol.Name, 10000, "myLabel")
-        execute_market_order(api.TradeType.Buy, symbol.Name, 10000, "myLabel", 10, 20)
-        execute_market_order(api.TradeType.Buy, symbol.Name, 5000, "myLabel", 10, 20, "my comment")
+        execute_market_order(TradeType.Buy, symbol.Name, 10000)
+        execute_market_order(TradeType.Sell, symbol.Name, 10000, "myLabel")
+        execute_market_order(TradeType.Buy, symbol.Name, 10000, "myLabel", 10, 20)
+        execute_market_order(TradeType.Buy, symbol.Name, 5000, "myLabel", 10, 20, "my comment")
     """
     if stop_loss_trigger_method is not None:
         return api.ExecuteMarketOrder(trade_side, symbol_name, volume, label, stop_loss_pips, take_profit_pips, comment, has_trailing_stop, stop_loss_trigger_method)
@@ -121,13 +121,13 @@ def place_stop_order(trade_side, symbol_name, volume, target_price, label=None, 
         
     Examples:
         # Basic stop order
-        place_stop_order(api.TradeType.Buy, symbol.Name, 10000, 1.2450)
+        place_stop_order(TradeType.Buy, symbol.Name, 10000, 1.2450)
         
         # Stop order with label
-        place_stop_order(api.TradeType.Sell, symbol.Name, 20000, symbol.Ask, "myStopOrder")
+        place_stop_order(TradeType.Sell, symbol.Name, 20000, symbol.Ask, "myStopOrder")
         
         # Stop order with protection
-        place_stop_order(api.TradeType.Buy, symbol.Name, 10000, 1.2450, "myStopOrder", 1.2400, 1.2500)
+        place_stop_order(TradeType.Buy, symbol.Name, 10000, 1.2450, "myStopOrder", 1.2400, 1.2500)
     """
     # Handle different combinations of parameters
     if stop_order_trigger_method is not None:
@@ -175,18 +175,18 @@ def place_limit_order(trade_side, symbol_name, volume, target_price, label=None,
         
     Examples:
         # Basic limit order
-        place_limit_order(api.TradeType.Buy, symbol.Name, 10000, symbol.Bid - 10 * symbol.PipSize)
+        place_limit_order(TradeType.Buy, symbol.Name, 10000, symbol.Bid - 10 * symbol.PipSize)
         
         # Limit order with label
-        place_limit_order(api.TradeType.Buy, symbol.Name, 10000, symbol.Bid - 5 * symbol.PipSize, "myLimitOrder")
+        place_limit_order(TradeType.Buy, symbol.Name, 10000, symbol.Bid - 5 * symbol.PipSize, "myLimitOrder")
         
         # Limit order with protection
-        place_limit_order(api.TradeType.Sell, symbol.Name, 20000, symbol.Ask + 10 * symbol.PipSize, 
+        place_limit_order(TradeType.Sell, symbol.Name, 20000, symbol.Ask + 10 * symbol.PipSize, 
                        "myLimitOrder", symbol.Ask - 20 * symbol.PipSize, symbol.Ask + 30 * symbol.PipSize)
                        
         # Limit order with expiration
         expiry = DateTime.Now.AddHours(1)
-        place_limit_order(api.TradeType.Buy, symbol.Name, 10000, symbol.Bid - 10 * symbol.PipSize,
+        place_limit_order(TradeType.Buy, symbol.Name, 10000, symbol.Bid - 10 * symbol.PipSize,
                        "myLimitOrder", 10, 10, expiry)
     """
     # Handle different combinations of parameters

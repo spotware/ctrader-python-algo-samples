@@ -12,7 +12,7 @@ public class TestRobot : Robot
 
     protected override void OnStart()
     {
-        EngineHelper.Initialize(Print);
+        EngineHelper.Initialize(this);
 
         using (Py.GIL())
         {
@@ -21,7 +21,6 @@ public class TestRobot : Robot
 
             using (var scope = Py.CreateScope())
             {
-                scope.Set("api", this);
                 scope.Set("currentAssembly", System.Reflection.Assembly.GetExecutingAssembly());
 
                 try
