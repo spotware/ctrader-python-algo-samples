@@ -1,5 +1,6 @@
-namespace cAlgo.Indicators;
 using Python.Runtime;
+
+namespace cAlgo.Indicators;
 
 internal class IndicatorBridge
 {

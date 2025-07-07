@@ -2,21 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using cAlgo.API.Internals;
 using Python.Runtime;
 
 namespace cAlgo.Indicators;
 
-internal class EngineHelper
+internal static class EngineHelper
 {
     private static Dictionary<string, string> _moduleCodeMap = new();
 
-    public static void Initialize(Action<object[]> printer)
+    public static void Initialize(Algo algo)
     {
-        InjectPrintDelegate(printer);
-        InitializePythonCodeModuleMap();
+        InjectPrintDelegate(algo.Print);
+        InitializePythonCodeModuleMap(algo);
+        SetApiGlobal(algo);
     }
 
-    private static void InitializePythonCodeModuleMap()
+    private static void InitializePythonCodeModuleMap(Algo algo)
     {
         _moduleCodeMap = new Dictionary<string, string>();
 
@@ -46,6 +48,21 @@ internal class EngineHelper
                 pyDict[new PyString(kv.Key)] = new PyString(kv.Value);
 
             main.install_inmemory_importer(pyDict, false);
+        }
+    }
+
+    private static void SetApiGlobal(Algo algo)
+    {
+        using (Py.GIL())
+        {
+            PythonEngine.Exec(@"
+import builtins
+
+builtins.api = None
+");
+
+            dynamic builtinsModule = Py.Import("builtins");
+            builtinsModule.api = algo.ToPython();
         }
     }
 

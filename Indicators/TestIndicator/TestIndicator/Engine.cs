@@ -16,7 +16,7 @@ public class TestIndicator : Indicator
 
     protected override void Initialize()
     {
-        EngineHelper.Initialize(Print);
+        EngineHelper.Initialize(this);
 
         using (Py.GIL())
         {
@@ -25,7 +25,6 @@ public class TestIndicator : Indicator
 
             using (var scope = Py.CreateScope())
             {
-                scope.Set("api", this);
                 scope.Set("currentAssembly", System.Reflection.Assembly.GetExecutingAssembly());
 
                 try
