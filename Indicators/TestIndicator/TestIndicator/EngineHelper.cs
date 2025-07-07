@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using cAlgo.API.Internals;
 using Python.Runtime;
 
 namespace cAlgo.Indicators;
@@ -11,14 +10,14 @@ internal static class EngineHelper
 {
     private static Dictionary<string, string> _moduleCodeMap = new();
 
-    public static void Initialize(Algo algo)
+    public static void Initialize(PyObject pyObject, Action<object[]> printer)
     {
-        InjectPrintDelegate(algo.Print);
-        InitializePythonCodeModuleMap(algo);
-        SetApiGlobal(algo);
+        InjectPrintDelegate(printer);
+        InitializePythonCodeModuleMap();
+        SetApiGlobal(pyObject);
     }
 
-    private static void InitializePythonCodeModuleMap(Algo algo)
+    private static void InitializePythonCodeModuleMap()
     {
         _moduleCodeMap = new Dictionary<string, string>();
 
@@ -51,7 +50,7 @@ internal static class EngineHelper
         }
     }
 
-    private static void SetApiGlobal(Algo algo)
+    private static void SetApiGlobal(PyObject pyObject)
     {
         using (Py.GIL())
         {
@@ -62,7 +61,7 @@ builtins.api = None
 ");
 
             dynamic builtinsModule = Py.Import("builtins");
-            builtinsModule.api = algo.ToPython();
+            builtinsModule.api = pyObject;
         }
     }
 

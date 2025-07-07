@@ -16,7 +16,7 @@ public class TestIndicator : Indicator
 
     protected override void Initialize()
     {
-        EngineHelper.Initialize(this);
+        EngineHelper.Initialize(this.ToPython(), Print);
 
         using (Py.GIL())
         {

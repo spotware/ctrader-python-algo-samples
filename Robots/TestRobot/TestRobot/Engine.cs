@@ -12,7 +12,7 @@ public class TestRobot : Robot
 
     protected override void OnStart()
     {
-        EngineHelper.Initialize(this);
+        EngineHelper.Initialize(this.ToPython(), Print);
 
         using (Py.GIL())
         {
