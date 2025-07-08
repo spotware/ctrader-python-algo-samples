@@ -1,5 +1,11 @@
 [
-    {
-        "name":  "TestIndicator"
-    }
+  {
+    "name": "Access Right Sample"
+  },
+  {
+    "name": "Account Sample"
+  },
+  {
+    "name": "TestIndicator"
+  }
 ]
