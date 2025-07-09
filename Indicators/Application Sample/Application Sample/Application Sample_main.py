@@ -26,7 +26,6 @@ class ApplicationSample():
 
         grid.AddChild(getTextBlock("Version"), 0, 0)
         grid.AddChild(getTextBlock(str(api.Application.Version)), 0, 1)
-        grid.AddChild(getTextBlock("Theme"), 1, 0)
 
         grid.AddChild(getTextBlock("Theme"), 1, 0)
 
