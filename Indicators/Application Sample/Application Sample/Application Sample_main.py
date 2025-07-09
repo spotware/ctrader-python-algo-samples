@@ -11,8 +11,8 @@ def getTextBlock(text):
 
 class ApplicationSample():
     def initialize(self):
-        api.Application.ColorThemeChanged += lambda obj: self.applicationColorThemeChanged(obj)
-        api.Application.UserTimeOffsetChanged += lambda obj: self.applicationUserTimeOffsetChanged(obj)
+        api.Application.ColorThemeChanged += self.applicationColorThemeChanged
+        api.Application.UserTimeOffsetChanged += self.applicationUserTimeOffsetChanged
         self.drawApplicationInfo()
         
     def calculate(self, index):
