@@ -1,1 +1,1 @@
-﻿{"RootNamespace":"TestRobot","PythonFiles":["robot_wrapper.py","TestRobot_main.py"]}
+﻿{"RootNamespace":"TestRobot","PythonFiles":["http_requests.py","robot_wrapper.py","TestRobot_main.py"]}

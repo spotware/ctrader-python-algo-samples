@@ -10,11 +10,11 @@ internal static class EngineHelper
 {
     private static Dictionary<string, string> _moduleCodeMap = new();
 
-    public static void Initialize(PyObject pyObject, Action<object[]> printer)
+    public static void Initialize(object apiObject, Action<object[]> printer)
     {
         InjectPrintDelegate(printer);
         InitializePythonCodeModuleMap();
-        SetApiGlobal(pyObject);
+        SetApiGlobal(apiObject);
     }
 
     private static void InitializePythonCodeModuleMap()
@@ -50,7 +50,7 @@ internal static class EngineHelper
         }
     }
 
-    private static void SetApiGlobal(PyObject pyObject)
+    private static void SetApiGlobal(object apiObject)
     {
         using (Py.GIL())
         {
@@ -61,11 +61,11 @@ builtins.api = None
 ");
 
             dynamic builtinsModule = Py.Import("builtins");
-            builtinsModule.api = pyObject;
+            builtinsModule.api = apiObject.ToPython();
         }
     }
 
-    public static void InjectPrintDelegate(Action<object[]> printer)
+    private static void InjectPrintDelegate(Action<object[]> printer)
     {
         using (Py.GIL())
         {

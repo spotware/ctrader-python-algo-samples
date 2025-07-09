@@ -1,1 +1,1 @@
-﻿{"RootNamespace":"TestIndicator","PythonFiles":["TestIndicator_main.py"]}
+﻿{"RootNamespace":"TestIndicator","PythonFiles":["http_requests.py","TestIndicator_main.py"]}
