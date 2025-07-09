@@ -1,1 +1,1 @@
-﻿{"RootNamespace":"TestPlugin","PythonFiles":["TestPlugin_main.py"]}
+﻿{"RootNamespace":"TestPlugin","PythonFiles":["http_requests.py","TestPlugin_main.py"]}

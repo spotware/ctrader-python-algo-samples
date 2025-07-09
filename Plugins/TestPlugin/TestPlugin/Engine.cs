@@ -12,7 +12,7 @@ public class TestPlugin : Plugin
 
     protected override void OnStart()
     {
-        EngineHelper.Initialize(this.ToPython(), Print);
+        EngineHelper.Initialize(this, Print);
 
         using (Py.GIL())
         {
