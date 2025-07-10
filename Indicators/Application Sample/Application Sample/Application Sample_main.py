@@ -14,9 +14,6 @@ class ApplicationSample():
         api.Application.ColorThemeChanged += self.applicationColorThemeChanged
         api.Application.UserTimeOffsetChanged += self.applicationUserTimeOffsetChanged
         self.drawApplicationInfo()
-        
-    def calculate(self, index):
-        pass
 
     def drawApplicationInfo(self):
         grid = Grid(3, 2)

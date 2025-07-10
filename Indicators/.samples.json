@@ -18,6 +18,33 @@
     "name": "Application Sample"
   },
   {
+    "name": "Bar Sample"
+  },
+  {
+    "name": "BarOpenedEventArgs Sample"
+  },
+  {
+    "name": "Bars Sample"
+  },
+  {
+    "name": "BarsTickEventArgs Sample"
+  },
+  {
+    "name": "Bollinger Bands Cloud Sample"
+  },
+  {
+    "name": "Bollinger Bands MTF Cloud Sample"
+  },
+  {
+    "name": "Border Sample"
+  },
+  {
+    "name": "Button Sample"
+  },
+  {
+    "name": "ButtonClickEventArgs Sample"
+  },
+  {
     "name": "TestIndicator"
   }
 ]

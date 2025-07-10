@@ -54,9 +54,6 @@ class AccountSample():
         grid.AddChild(self.getTextBlock(str(api.Account.UserId)), 15, 1)
 
         api.Chart.AddControl(grid)
-        
-    def calculate(self, index):
-        pass
 
     def getTextBlock(self, text):
         textBlock = TextBlock()

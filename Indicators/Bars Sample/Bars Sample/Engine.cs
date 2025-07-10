@@ -1,0 +1,66 @@
+using System;
+using cAlgo.API;
+using Python.Runtime;
+
+namespace cAlgo.Indicators;
+
+[Indicator(AccessRights = AccessRights.None)]
+public class BarsSample : Indicator
+{
+    private IndicatorBridge _indicator;
+    private const string MainPythonFile = "Bars Sample_main.py";
+
+    [Output("Range", LineColor = "RoyalBlue")]
+    public IndicatorDataSeries Range { get; set; }
+
+    [Output("Body", LineColor = "Yellow")]
+    public IndicatorDataSeries Body { get; set; }
+
+    protected override void Initialize()
+    {
+        EngineHelper.Initialize(this, Print);
+
+        using (Py.GIL())
+        {
+            var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
+            var className = EngineHelper.GetClassName(code);
+
+            using (var scope = Py.CreateScope())
+            {
+                scope.Set("currentAssembly", System.Reflection.Assembly.GetExecutingAssembly());
+
+                try
+                {
+                    scope.Exec(code);
+                    if (!scope.Contains(className))
+                    {
+                        Print($"Error: Python class '{className}' not found in the module!");
+                        throw new InvalidOperationException($"Python class '{className}' not found in the module");
+                    }
+
+                    dynamic pythonClass = scope.Get(className);
+                    _indicator = new IndicatorBridge(pythonClass());
+
+                    _indicator.Initialize();
+                }
+                catch (Exception ex)
+                {
+                    Print($"Error initializing Python: {ex.Message}\nStack trace: {ex.StackTrace}");
+                    throw;
+                }
+            }
+        }
+    }
+
+    public override void Calculate(int index)
+    {
+        using (Py.GIL())
+            _indicator.Calculate(index);
+    }
+
+    protected override void OnDestroy()
+    {
+        using (Py.GIL())
+            _indicator.OnDestroy();
+    }
+}

@@ -15,6 +15,3 @@ class AndrewsPitchforkSample():
        
         andrewsPitchfork = api.Chart.DrawAndrewsPitchfork("AndrewsPitchfork", barIndex1, y1, barIndex2, y2, barIndex3, y3, Color.Red)
         andrewsPitchfork.IsInteractive = True
-        
-    def calculate(self, index):
-        pass
