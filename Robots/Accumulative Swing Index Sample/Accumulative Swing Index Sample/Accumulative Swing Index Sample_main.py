@@ -8,19 +8,19 @@ from cAlgo.API import *
 # Import trading wrapper functions
 from robot_wrapper import *
 
-class AcceleratorOscillatorSample():
+class AccumulativeSwingIndexSample():
     def on_start(self):
         self.volumeInUnits = api.Symbol.QuantityToVolumeInUnits(api.VolumeInLots)
-        self.acceleratorOscillator = api.Indicators.AcceleratorOscillator()
+        self.accumulativeSwingIndex = api.Indicators.AccumulativeSwingIndex(api.LimitMoveValue)
 
     def on_bar_closed(self):
         for position in self.get_bot_positions():
-            if (position.TradeType == TradeType.Buy and self.acceleratorOscillator.Result.Last(0) < self.acceleratorOscillator.Result.Last(1)) or (position.TradeType == TradeType.Sell and self.acceleratorOscillator.Result.Last(0) > self.acceleratorOscillator.Result.Last(1)):
+            if (position.TradeType == TradeType.Buy and self.accumulativeSwingIndex.Result.Last(0) < self.accumulativeSwingIndex.Result.Last(1)) or (position.TradeType == TradeType.Sell and self.accumulativeSwingIndex.Result.Last(0) > self.accumulativeSwingIndex.Result.Last(1)):
                 api.ClosePosition(position);
 
-        if self.acceleratorOscillator.Result.Last(0) > 0 and self.acceleratorOscillator.Result.Last(1) <= 0:
+        if self.accumulativeSwingIndex.Result.Last(0) > 0 and self.accumulativeSwingIndex.Result.Last(1) <= 0:
             api.ExecuteMarketOrder(TradeType.Buy, api.SymbolName, self.volumeInUnits, api.Label, api.StopLossInPips, api.TakeProfitInPips)
-        elif (self.acceleratorOscillator.Result.Last(0) < 0 and self.acceleratorOscillator.Result.Last(1) >= 0):
+        elif (self.accumulativeSwingIndex.Result.Last(0) < 0 and self.accumulativeSwingIndex.Result.Last(1) >= 0):
             api.ExecuteMarketOrder(TradeType.Sell, api.SymbolName, self.volumeInUnits, api.Label, api.StopLossInPips, api.TakeProfitInPips)
 
     def get_bot_positions(self):
