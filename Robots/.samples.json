@@ -3,6 +3,33 @@
     "name": "Accelerator Oscillator Sample"
   },
   {
+    "name": "Accumulative Swing Index Sample"
+  },
+  {
+    "name": "Add Indicator Sample"
+  },
+  {
+    "name": "AddToChart Sample"
+  },
+  {
+    "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "Alligator Sample"
+  },
+  {
+    "name": "Aroon Sample"
+  },
+  {
+    "name": "Average Directional Movement Index Rating Sample"
+  },
+  {
+    "name": "Average True Range Sample"
+  },
+  {
+    "name": "Awesome Oscillator Sample"
+  },
+  {
     "name": "TestRobot"
   }
 ]
