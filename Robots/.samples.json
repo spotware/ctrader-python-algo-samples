@@ -30,6 +30,54 @@
     "name": "Awesome Oscillator Sample"
   },
   {
+    "name": "BarClosed Example"
+  },
+  {
+    "name": "BarOpened Example"
+  },
+  {
+    "name": "Bars History Loaded Event Args Sample"
+  },
+  {
+    "name": "Bollinger Bands Sample"
+  },
+  {
+    "name": "Center Of Gravity Sample"
+  },
+  {
+    "name": "Chaikin Money Flow Sample"
+  },
+  {
+    "name": "Chaikin Volatility Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "Close All On Market Close Sample"
+  },
+  {
+    "name": "Commodity Channel Index Sample"
+  },
+  {
+    "name": "Compilation Robot Sample"
+  },
+  {
+    "name": "CoordinatesConversion Sample"
+  },
+  {
+    "name": "Custom Fitness Functions"
+  },
+  {
+    "name": "Custom Handlers Example"
+  },
+  {
+    "name": "Cyber Cycle Sample"
+  },
+  {
     "name": "TestRobot"
   }
 ]
