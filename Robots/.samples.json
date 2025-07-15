@@ -76,5 +76,11 @@
   },
   {
     "name": "Cyber Cycle Sample"
+  },
+  {
+    "name": "File System Sample"
+  },
+  {
+    "name": "Http Requests Sample"
   }
 ]
