@@ -1,5 +1,17 @@
 [
   {
+    "name": "ActiveFrameChanged Sample"
+  },
+  {
+    "name": "Algo Registry Sample"
+  },
+  {
+    "name": "All Placements"
+  },
+  {
+    "name": "ASP Block WebView Example"
+  },
+  {
     "name": "TestPlugin"
   }
 ]
