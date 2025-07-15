@@ -78,12 +78,9 @@
     "name": "Cyber Cycle Sample"
   },
   {
-    "name": "TestRobot"
+    "name": "File System Sample"
   },
   {
     "name": "Http Requests Sample"
-  },
-  {
-    "name": "File System Sample"
   }
 ]
