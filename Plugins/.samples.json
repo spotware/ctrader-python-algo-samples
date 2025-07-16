@@ -10,5 +10,17 @@
   },
   {
     "name": "ASP Block WebView Example"
+  },
+  {
+    "name": "BacktestingInPlugins Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "ChartRobots Sample"
   }
 ]
