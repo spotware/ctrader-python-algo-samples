@@ -15,6 +15,9 @@
     "name": "BacktestingInPlugins Sample"
   },
   {
+    "name": "Chart Display Settings Sample"
+  },
+  {
     "name": "ChartId Sample"
   },
   {
@@ -22,5 +25,47 @@
   },
   {
     "name": "ChartRobots Sample"
+  },
+  {
+    "name": "Commands Sample"
+  },
+  {
+    "name": "Coordinates Conversion Sample"
+  },
+  {
+    "name": "Custom Frame Sample"
+  },
+  {
+    "name": "Interactive WebView"
+  },
+  {
+    "name": "Open Close Positions Chart Toolbar Button Sample"
+  },
+  {
+    "name": "Order By Margin"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "Previous Bar Info"
+  },
+  {
+    "name": "Show Window Sample"
+  },
+  {
+    "name": "Smooth Mouse Move Sample"
+  },
+  {
+    "name": "TradeWatch Tab Sample"
+  },
+  {
+    "name": "VWAP ASP Block"
+  },
+  {
+    "name": "WebSocket Client Sample"
+  },
+  {
+    "name": "WebView Custom Frame Sample"
   }
 ]
