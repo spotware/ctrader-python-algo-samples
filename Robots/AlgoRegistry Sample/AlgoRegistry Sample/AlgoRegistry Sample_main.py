@@ -43,9 +43,9 @@ class AlgoRegistrySample():
 
     def on_cbot_selection_comboBox_selected_item_changed(self, args):
         self.selectedCBotName = args.SelectedItem;
-        self.parametersInfoBlock.Text = self.GenerateParametersInfo();
+        self.parametersInfoBlock.Text = self.get_parameters_info();
 
-    def GenerateParametersInfo(self):
+    def get_parameters_info(self):
         result = "";
             
         selectedCBot = RobotType(api.AlgoRegistry.Get(self.selectedCBotName, AlgoKind.Robot));
