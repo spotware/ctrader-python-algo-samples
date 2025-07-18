@@ -15,4 +15,4 @@ class ChartDisplaySettingsSample():
         self.newChart.DisplaySettings.IndicatorTitles = False
 
     def on_chart_display_settings_changed(self, args):
-        api.Print(f"IndicatorTitles: {self.newChart.DisplaySettings.IndicatorTitles}")
+        api.Print(f"IndicatorTitles: {args.Chart.DisplaySettings.IndicatorTitles}")

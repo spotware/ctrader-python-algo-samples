@@ -51,6 +51,9 @@
     "name": "Chaikin Volatility Sample"
   },
   {
+    "name": "Chart Display Settings Sample"
+  },
+  {
     "name": "ChartId Sample"
   },
   {
@@ -78,9 +81,51 @@
     "name": "Cyber Cycle Sample"
   },
   {
+    "name": "Detrended Price Oscillator Sample"
+  },
+  {
+    "name": "Directional Movement System Sample"
+  },
+  {
+    "name": "Donchian Channel Sample"
+  },
+  {
+    "name": "Ease Of Movement Sample"
+  },
+  {
+    "name": "Error Sample"
+  },
+  {
+    "name": "Exponential Moving Average Sample"
+  },
+  {
     "name": "File System Sample"
   },
   {
+    "name": "Fractal Chaos Bands Sample"
+  },
+  {
+    "name": "GetFitnessArgs Sample"
+  },
+  {
+    "name": "Grid Sample"
+  },
+  {
+    "name": "High Minus Low Sample"
+  },
+  {
+    "name": "Historical Volatility Sample"
+  },
+  {
     "name": "Http Requests Sample"
+  },
+  {
+    "name": "Hull Moving Average Sample"
+  },
+  {
+    "name": "Ichimoku Kinko Hyo Sample"
+  },
+  {
+    "name": "Keltner Channels Sample"
   }
 ]
