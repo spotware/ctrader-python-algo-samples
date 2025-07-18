@@ -46,7 +46,7 @@ class BacktestingInPluginsSample():
     def on_start_backtesting_button_click(self, args):
         backtestingSettings = BacktestingSettings()
         backtestingSettings.DataMode = BacktestingDataMode.M1
-        backtestingSettings.StartTimeUtc = DateTime(DateTime.UtcNow.Year - 1, DateTime.UtcNow.Month, DateTime.UtcNow.Day)
+        backtestingSettings.StartTimeUtc = DateTime(DateTime.UtcNow.Year - 2, DateTime.UtcNow.Month, DateTime.UtcNow.Day)
         backtestingSettings.EndTimeUtc = DateTime.UtcNow
         backtestingSettings.Balance = 10000
             
@@ -62,7 +62,7 @@ class BacktestingInPluginsSample():
         self.selectedRobotType = RobotType(api.AlgoRegistry.Get(args.SelectedItem))
 
     def on_backtesting_completed(self, args):
-        if int(args.Process.BacktestingError) == 0:
+        if int(args.Process.BacktestingError) > 0:
             api.Print(f"Backtesting failed with error {args.Process.BacktestingError}")
             return
             
