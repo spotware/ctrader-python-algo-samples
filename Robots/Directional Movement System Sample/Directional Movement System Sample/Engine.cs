@@ -34,6 +34,9 @@ public partial class DirectionalMovementSystemSample
                     dynamic pythonClass = scope.Get(className);
                     _robot = new RobotBridge(pythonClass());
 
+                    Positions.Closed += OnPositionClosed;
+                    Positions.Opened += OnPositionOpened;
+
                     _robot.OnStart();
                 }
                 catch (Exception ex)
@@ -55,6 +58,9 @@ public partial class DirectionalMovementSystemSample
     {
         using (Py.GIL())
             _robot.OnStop();
+
+        Positions.Closed -= OnPositionClosed;
+        Positions.Opened -= OnPositionOpened;
     }
 
     protected override void OnBar()
@@ -69,17 +75,15 @@ public partial class DirectionalMovementSystemSample
             _robot.OnBarClosed();
     }
 
-    [Obsolete("Subscribe to Positions.Closed event instead")]
-    protected override void OnPositionClosed(Position position)
+    private void OnPositionClosed(PositionClosedEventArgs args)
     {
         using (Py.GIL())
-            _robot.OnPositionClosed(position);
+            _robot.OnPositionClosed(args.Position);
     }
 
-    [Obsolete("Subscribe to Positions.Closed event instead")]
-    protected override void OnPositionOpened(Position openedPosition)
+    private void OnPositionOpened(PositionOpenedEventArgs args)
     {
         using (Py.GIL())
-            _robot.OnPositionOpened(openedPosition);
+            _robot.OnPositionOpened(args.Position);
     }
 }
