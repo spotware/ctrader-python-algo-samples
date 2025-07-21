@@ -127,5 +127,56 @@
   },
   {
     "name": "Keltner Channels Sample"
+  },
+  {
+    "name": "Linear Regression Forecast Sample"
+  },
+  {
+    "name": "Linear Regression Intercept Sample"
+  },
+  {
+    "name": "Linear Regression R Squared Sample"
+  },
+  {
+    "name": "Linear Regression Slope Sample"
+  },
+  {
+    "name": "Macd Cross Over Sample"
+  },
+  {
+    "name": "Macd Histogram Sample"
+  },
+  {
+    "name": "Mass Index Sample"
+  },
+  {
+    "name": "Median Price Sample"
+  },
+  {
+    "name": "Momentum Oscillator Sample"
+  },
+  {
+    "name": "Money Flow Index Sample"
+  },
+  {
+    "name": "Moving Average Sample"
+  },
+  {
+    "name": "On Balance Volume Sample"
+  },
+  {
+    "name": "Parabolic SAR Sample"
+  },
+  {
+    "name": "Partial Close Sample"
+  },
+  {
+    "name": "Patterns Strategy Sample"
+  },
+  {
+    "name": "Pending Order Cancelation Sample"
+  },
+  {
+    "name": "Pending Order Events"
   }
 ]
