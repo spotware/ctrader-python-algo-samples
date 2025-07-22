@@ -178,5 +178,71 @@
   },
   {
     "name": "Pending Order Events"
+  },
+  {
+    "name": "Pending Order Modification Sample"
+  },
+  {
+    "name": "Pending Order Placing Sample"
+  },
+  {
+    "name": "PendingOrderCancellationReason Sample"
+  },
+  {
+    "name": "PendingOrders Sample"
+  },
+  {
+    "name": "Polynomial Regression Channels Sample"
+  },
+  {
+    "name": "Position Bars Passed Sample"
+  },
+  {
+    "name": "Position Closing Sample"
+  },
+  {
+    "name": "Position Events Sample"
+  },
+  {
+    "name": "Position Execution Sample"
+  },
+  {
+    "name": "Position Modification Sample"
+  },
+  {
+    "name": "PositionCloseReason Sample"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "PositionModifiedEventArgs Sample"
+  },
+  {
+    "name": "Price Oscillator Sample"
+  },
+  {
+    "name": "Price ROC Sample"
+  },
+  {
+    "name": "Price Volume Trend Sample"
+  },
+  {
+    "name": "Rainbow Oscillator Sample"
+  },
+  {
+    "name": "Range Strategy Example"
+  },
+  {
+    "name": "RefreshData Sample"
+  },
+  {
+    "name": "Relative Strength Index Sample"
+  },
+  {
+    "name": "RSI Reversal Strategy Sample"
+  },
+  {
+    "name": "Running Mode Sample"
   }
 ]

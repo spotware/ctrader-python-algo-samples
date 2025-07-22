@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PendingOrderCancellationReason Sample", "PendingOrderCancellationReason Sample\PendingOrderCancellationReason Sample.csproj", "{ec0edf2a-d83d-4824-8f3c-c6e0e16ff767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ec0edf2a-d83d-4824-8f3c-c6e0e16ff767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ec0edf2a-d83d-4824-8f3c-c6e0e16ff767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ec0edf2a-d83d-4824-8f3c-c6e0e16ff767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ec0edf2a-d83d-4824-8f3c-c6e0e16ff767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
