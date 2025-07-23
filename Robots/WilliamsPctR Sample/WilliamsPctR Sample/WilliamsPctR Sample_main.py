@@ -7,7 +7,6 @@ from cAlgo.API import *
 
 # Import trading wrapper functions
 from robot_wrapper import *
-import math
 
 class WilliamsPctRSample():
     def on_start(self):
