@@ -244,5 +244,98 @@
   },
   {
     "name": "Running Mode Sample"
+  },
+  {
+    "name": "Simple Moving Average Sample"
+  },
+  {
+    "name": "SmoothMouseMove Sample"
+  },
+  {
+    "name": "Standard Deviation Sample"
+  },
+  {
+    "name": "Start cBot Sample"
+  },
+  {
+    "name": "Stochastic Oscillator Sample"
+  },
+  {
+    "name": "StopTriggerMethod Sample"
+  },
+  {
+    "name": "Supertrend Sample"
+  },
+  {
+    "name": "Swing Index Sample"
+  },
+  {
+    "name": "Time Series Moving Average Sample"
+  },
+  {
+    "name": "Timer Sample"
+  },
+  {
+    "name": "Trade Volume Index Sample"
+  },
+  {
+    "name": "TradeOperation Sample"
+  },
+  {
+    "name": "TradeResult Sample"
+  },
+  {
+    "name": "TradeType Sample"
+  },
+  {
+    "name": "Triangular Moving Average Sample"
+  },
+  {
+    "name": "Trix Sample"
+  },
+  {
+    "name": "True Range Sample"
+  },
+  {
+    "name": "Typical Price Sample"
+  },
+  {
+    "name": "Ultimate Oscillator Sample"
+  },
+  {
+    "name": "Vertical Horizontal Filter Sample"
+  },
+  {
+    "name": "Vidya Sample"
+  },
+  {
+    "name": "Volume Index Sample"
+  },
+  {
+    "name": "Volume Oscillator Sample"
+  },
+  {
+    "name": "Volume ROC Sample"
+  },
+  {
+    "name": "WebSocket Client AI Sample"
+  },
+  {
+    "name": "WebSocket Client Sample"
+  },
+  {
+    "name": "Weighted Close Sample"
+  },
+  {
+    "name": "Weighted Moving Average Sample"
+  },
+  {
+    "name": "Welles Wilder Smoothing Sample"
+  },
+  {
+    "name": "Williams Accumulation Distribution Sample"
+  },
+  {
+    "name": "WilliamsPctR Sample"
   }
 ]
