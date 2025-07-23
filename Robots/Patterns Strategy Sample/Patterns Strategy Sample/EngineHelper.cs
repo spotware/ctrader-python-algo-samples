@@ -92,7 +92,7 @@ builtins.print = py_print
         foreach (var pythonFile in pythonManifest.PythonFiles)
         {
             var pythonFileInfo = new FileInfo(pythonFile.Replace('/', Path.DirectorySeparatorChar));
-            var resourceName = pythonFile.Replace('/', '.');
+            var resourceName = PathToResourceName(pythonFile);
             resourceNameAndPaths[$"{pythonManifest.RootNamespace}.{resourceName}"] = pythonFileInfo;
         }
 
@@ -107,5 +107,24 @@ builtins.print = py_print
 
             readFileAction(fileInfo.FullName, pythonResource);
         }
+    }
+
+    private static string PathToResourceName(string path)
+    {
+        var directoryName = Path.GetDirectoryName(path);
+        var fileName = Path.GetFileName(path);
+
+        if (string.IsNullOrEmpty(directoryName))
+            return path;
+
+        if (string.IsNullOrEmpty(fileName))
+            return path;
+
+        var invalidChars = new[] { ' ', ';', '!', '@', '#', '$', '%', '^', '&', '(', ')', '+', '-', '\'', '=', '`', '~', '[', ']', '{', '}' };
+        directoryName = invalidChars
+            .Aggregate(directoryName, (current, c) => current.Replace(c.ToString(), "_"))
+            .Replace('/', '.');
+
+        return directoryName + "." + fileName;
     }
 }
