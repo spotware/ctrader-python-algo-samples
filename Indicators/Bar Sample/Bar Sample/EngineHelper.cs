@@ -128,11 +128,20 @@ builtins.print = py_print
         if (string.IsNullOrEmpty(fileName))
             return path;
 
-        var invalidChars = new[] { ' ', ';', '!', '@', '#', '$', '%', '^', '&', '(', ')', '+', '-', '\'', '=', '`', '~', '[', ']', '{', '}' };
-        directoryName = invalidChars
-            .Aggregate(directoryName, (current, c) => current.Replace(c.ToString(), "_"))
-            .Replace('/', '.');
+        var stringBuilder = new StringBuilder();
+        var invalidChars = new[] { ' ', ';', '!', '@', '#', '
+}, '%', '^', '&', '(', ')', '+', '-', '\'', '=', '`', '~', '[', ']', '{', '}' };
 
-        return directoryName + "." + fileName;
+        foreach (var c in directoryName)
+        {
+            if (invalidChars.Contains(c))
+                stringBuilder.Append('_');
+            else if (c == '/')
+                stringBuilder.Append('.');
+            else
+                stringBuilder.Append(c);
+        }
+
+        return stringBuilder.Append('.').Append(fileName).ToString();
     }
 }
