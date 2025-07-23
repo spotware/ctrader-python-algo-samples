@@ -19,7 +19,7 @@ class WebSocketClientSample():
         self.webSocketClient.Send("Hello")
 
         # Declaring a custom handler for the TextReceived event
-        self.webSocketClient.TextReceived += self.on_news_received
+        self.webSocketClient.TextReceived += self.on_text_received
             
         # Adding our TextBlock as a child of a custom AspBlock
         aspBlock = api.Asp.SymbolTab.AddBlock("WebSocket Client Sample");
@@ -34,8 +34,8 @@ class WebSocketClientSample():
 
         aspBlock.Child = self.textBlock;
         
-    def on_news_received(self, args):
-        # Updading the text inside the TextBlock on every piece of news received
+    def on_text_received(self, args):
+        # Updading the text inside the TextBlock on every piece of text received
         if len(args.Text) > 0: 
             self.textBlock.Text = f"Received: {args.Text}"
 
