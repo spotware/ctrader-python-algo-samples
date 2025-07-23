@@ -9,20 +9,19 @@
         <Compile Remove="**\*.py"/>
     </ItemGroup>
 
-    <ItemGroup>
+  <ItemGroup>
         <EmbeddedResource Include="**\*.py">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </EmbeddedResource>
     </ItemGroup>
 
-    <ItemGroup>
-        <None Remove="requirements.txt"/>
-        <Content Include="requirements.txt">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
+  <ItemGroup>
+    <None Update="requirements.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
-    <ItemGroup>
+  <ItemGroup>
         <PackageReference Include="cTrader.Automate" Version="*-*"/>
         <PackageReference Include="pythonnet" Version="3.0.5"/>
     </ItemGroup>
