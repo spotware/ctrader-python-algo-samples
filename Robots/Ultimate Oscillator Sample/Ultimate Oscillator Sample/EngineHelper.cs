@@ -93,7 +93,7 @@ builtins.print = py_print
         foreach (var pythonFile in pythonManifest.PythonFiles)
         {
             var pythonFileInfo = new FileInfo(pythonFile.Replace('/', Path.DirectorySeparatorChar));
-            var resourceName = pythonFile.Replace('/', '.');
+            var resourceName = PathToResourceName(pythonFile);
             resourceNameAndPaths[$"{pythonManifest.RootNamespace}.{resourceName}"] = pythonFileInfo;
         }
 
@@ -116,5 +116,32 @@ builtins.print = py_print
             .Skip(1).FirstOrDefault()
             ?.Split('(', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).FirstOrDefault()
             ?.Trim();
+    }
+
+    private static string PathToResourceName(string path)
+    {
+        var directoryName = Path.GetDirectoryName(path);
+        var fileName = Path.GetFileName(path);
+
+        if (string.IsNullOrEmpty(directoryName))
+            return path;
+
+        if (string.IsNullOrEmpty(fileName))
+            return path;
+
+        var stringBuilder = new StringBuilder();
+        var invalidChars = new[] { ' ', ';', '!', '@', '#', '$', '%', '^', '&', '(', ')', '+', '-', '\'', '=', '', '~', '[', ']', '{', '}' };
+
+        foreach (var c in directoryName)
+        {
+            if (invalidChars.Contains(c))
+                stringBuilder.Append('_');
+            else if (c == '/')
+                stringBuilder.Append('.');
+            else
+                stringBuilder.Append(c);
+        }
+
+        return stringBuilder.Append('.').Append(fileName).ToString();
     }
 }
