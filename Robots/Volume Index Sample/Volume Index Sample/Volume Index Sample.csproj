@@ -16,10 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="requirements.txt" />
-    <Content Include="requirements.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Update="requirements.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
