@@ -121,8 +121,7 @@ builtins.print = py_print
             return path;
 
         var stringBuilder = new StringBuilder();
-        var invalidChars = new[] { ' ', ';', '!', '@', '#', '
-}, '%', '^', '&', '(', ')', '+', '-', '\'', '=', '`', '~', '[', ']', '{', '}' };
+        var invalidChars = new[] { ' ', ';', '!', '@', '#', '$', '%', '^', '&', '(', ')', '+', '-', '\'', '=', '`', '~', '[', ']', '{', '}' };
 
         foreach (var c in directoryName)
         {
