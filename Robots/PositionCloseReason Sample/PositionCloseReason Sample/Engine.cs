@@ -116,17 +116,17 @@ public partial class PositionCloseReasonSample : Robot
             return _robot.GetFitness(args);
     }
 
-    private bool CanExecutePythonAlgorithm
+    private bool CanExecutePythonAlgorithm()
     {
-        if _pythonIsSupported == false
+        if (_pythonIsSupported == false)
             return false;
 
-        if _pythonIsSupported == true
+        if (_pythonIsSupported == true)
             return true;
 
-        if !IsPlatformSupported
+        if (!IsPlatformSupported())
         {
-            Print"Python algorithms are not supported in the current version of cTrader";
+            Print("Python algorithms are not supported in the current version of cTrader");
             _pythonIsSupported = false;
             return false;
         }
@@ -135,16 +135,16 @@ public partial class PositionCloseReasonSample : Robot
         return true;
     }
 
-    private bool IsPlatformSupported
+    private bool IsPlatformSupported()
     {
         var version = Application.Version;
 
-        if RuntimeInformation.IsOSPlatformOSPlatform.Windows &&
-            version.Major > 5 || version.Major == 5 && version.Minor >= 4
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) &&
+            (version.Major > 5 || version.Major == 5 && version.Minor >= 4))
             return true;
 
-        if RuntimeInformation.IsOSPlatformOSPlatform.OSX &&
-            version.Major > 5 || version.Major == 5 && version.Minor >= 7
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) &&
+            (version.Major > 5 || version.Major == 5 && version.Minor >= 7))
             return true;
 
         return false;
