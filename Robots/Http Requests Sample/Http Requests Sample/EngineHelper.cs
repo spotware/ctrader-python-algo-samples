@@ -12,9 +12,9 @@ internal static class EngineHelper
 {
     private static Dictionary<string, string> _moduleCodeMap = new();
 
-    public static void Initialize(Algo algo)
+    public static void Initialize(Algo algo, Action<object[]> printer)
     {
-        InjectPrintDelegate(algo.Print);
+        InjectPrintDelegate(printer);
         InitializePythonCodeModuleMap(algo);
         SetApiGlobal(algo);
     }
