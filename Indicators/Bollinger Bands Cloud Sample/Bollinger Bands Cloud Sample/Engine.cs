@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using cAlgo.API;
 using Python.Runtime;
 
@@ -9,6 +10,7 @@ namespace cAlgo.Indicators;
 public class BollingerBandsCloudSample : Indicator
 {
     private IndicatorBridge _indicator;
+    private bool? _pythonIsSupported;
     private const string MainPythonFile = "Bollinger Bands Cloud Sample_main.py";
     
     [Output("Main", LineColor = "Yellow", PlotType = PlotType.Line, Thickness = 1)]
@@ -22,6 +24,9 @@ public class BollingerBandsCloudSample : Indicator
 
     protected override void Initialize()
     {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
         EngineHelper.Initialize(this, Print);
 
         using (Py.GIL())
@@ -58,13 +63,53 @@ public class BollingerBandsCloudSample : Indicator
 
     public override void Calculate(int index)
     {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
         using (Py.GIL())
             _indicator.Calculate(index);
     }
 
     protected override void OnDestroy()
     {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
         using (Py.GIL())
             _indicator.OnDestroy();
+    }
+
+    private bool CanExecutePythonAlgorithm
+    {
+        if _pythonIsSupported == false
+            return false;
+
+        if _pythonIsSupported == true
+            return true;
+
+        if !IsPlatformSupported
+        {
+            Print"Python algorithms are not supported in the current version of cTrader";
+            _pythonIsSupported = false;
+            return false;
+        }
+
+        _pythonIsSupported = true;
+        return true;
+    }
+
+    private bool IsPlatformSupported
+    {
+        var version = Application.Version;
+
+        if RuntimeInformation.IsOSPlatformOSPlatform.Windows &&
+            version.Major > 5 || version.Major == 5 && version.Minor >= 4
+            return true;
+
+        if RuntimeInformation.IsOSPlatformOSPlatform.OSX &&
+            version.Major > 5 || version.Major == 5 && version.Minor >= 7
+            return true;
+
+        return false;
     }
 }
