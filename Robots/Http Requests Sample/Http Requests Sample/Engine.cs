@@ -20,7 +20,7 @@ public class HttpRequestsSample : Robot
             return;
         }
 
-        EngineHelper.Initialize(this);
+        EngineHelper.Initialize(this, Print);
 
         using (Py.GIL())
         {
