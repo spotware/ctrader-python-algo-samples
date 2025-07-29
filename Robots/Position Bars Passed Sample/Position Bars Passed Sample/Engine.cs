@@ -122,9 +122,6 @@ public partial class PositionBarsPassedSample : Robot
 
     protected override double GetFitness(GetFitnessArgs args)
     {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
         using (Py.GIL())
         {
             return _robot.GetFitness(args);
