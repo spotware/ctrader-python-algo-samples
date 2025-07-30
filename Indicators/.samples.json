@@ -43,5 +43,26 @@
   },
   {
     "name": "ButtonClickEventArgs Sample"
+  },
+  {
+    "name": "Canvas Sample"
+  },
+  {
+    "name": "Character Casing Sample"
+  },
+  {
+    "name": "Chart Color Settings Sample"
+  },
+  {
+    "name": "Chart Display Settings Sample"
+  },
+  {
+    "name": "Chart Ellipse Sample"
+  },
+  {
+    "name": "Chart Icon Sample"
+  },
+  {
+    "name": "Chart Key Down Sample"
   }
 ]
