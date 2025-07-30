@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cTrader.Automate" Version="*-*" />
+    <PackageReference Include="cTrader.Automate" Version="*" />
     <PackageReference Include="pythonnet" Version="3.0.5" />
   </ItemGroup>
 </Project>
