@@ -64,5 +64,116 @@
   },
   {
     "name": "Chart Key Down Sample"
+  },
+  {
+    "name": "Chart Rectangle Sample"
+  },
+  {
+    "name": "Chart Sample"
+  },
+  {
+    "name": "Chart Static Text Sample"
+  },
+  {
+    "name": "Chart Text Sample"
+  },
+  {
+    "name": "Chart Trend Line Sample"
+  },
+  {
+    "name": "Chart Triangle Sample"
+  },
+  {
+    "name": "Chart Vertical Line Sample"
+  },
+  {
+    "name": "ChartActivationChangedEventArgs Sample"
+  },
+  {
+    "name": "ChartArea Sample"
+  },
+  {
+    "name": "ChartColorEventArgs Sample"
+  },
+  {
+    "name": "ChartDisplaySettingsEventArgs Sample"
+  },
+  {
+    "name": "ChartDragEventArgs Sample"
+  },
+  {
+    "name": "ChartIconType Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "ChartKeyboardEventArgs Sample"
+  },
+  {
+    "name": "ChartMouseEventArgs Sample"
+  },
+  {
+    "name": "ChartMouseWheelEventArgs Sample"
+  },
+  {
+    "name": "ChartObjectHoverChangedEventArgs Sample"
+  },
+  {
+    "name": "ChartObjectsAddedEventArgs Sample"
+  },
+  {
+    "name": "ChartObjectsRemovedEventArgs Sample"
+  },
+  {
+    "name": "ChartObjectsSelectionChangedEventArgs Sample"
+  },
+  {
+    "name": "ChartObjectsUpdatedEventArgs Sample"
+  },
+  {
+    "name": "ChartScrollEventArgs Sample"
+  },
+  {
+    "name": "ChartSizeEventArgs Sample"
+  },
+  {
+    "name": "ChartType Sample"
+  },
+  {
+    "name": "ChartTypeEventArgs Sample"
+  },
+  {
+    "name": "ChartZoomEventArgs Sample"
+  },
+  {
+    "name": "CheckBox Control Sample"
+  },
+  {
+    "name": "CheckBoxEventArgs Sample"
+  },
+  {
+    "name": "Color Sample"
+  },
+  {
+    "name": "Color Theme Sample"
+  },
+  {
+    "name": "ColorThemeChangeEventArgs Sample"
+  },
+  {
+    "name": "Control Alignment Sample"
+  },
+  {
+    "name": "ControlProperty Sample"
+  },
+  {
+    "name": "Coordinates Conversion Sample"
+  },
+  {
+    "name": "Custom Control Sample"
   }
 ]
