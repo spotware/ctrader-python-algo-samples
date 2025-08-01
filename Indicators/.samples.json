@@ -175,5 +175,89 @@
   },
   {
     "name": "Custom Control Sample"
+  },
+  {
+    "name": "Data Series Sample"
+  },
+  {
+    "name": "Dock Panel Sample"
+  },
+  {
+    "name": "Ellipse Shape Sample"
+  },
+  {
+    "name": "Equidistant Channel Sample"
+  },
+  {
+    "name": "Fibonacci Expansion Sample"
+  },
+  {
+    "name": "Fibonacci Fan Sample"
+  },
+  {
+    "name": "Fibonacci Level Sample"
+  },
+  {
+    "name": "Fibonacci Retracement Sample"
+  },
+  {
+    "name": "Fill Rule Sample"
+  },
+  {
+    "name": "Font Sample"
+  },
+  {
+    "name": "Functions Sample"
+  },
+  {
+    "name": "Grid Sample"
+  },
+  {
+    "name": "GridColumn Sample"
+  },
+  {
+    "name": "GridLength Sample"
+  },
+  {
+    "name": "GridRow Sample"
+  },
+  {
+    "name": "GridUnitType Sample"
+  },
+  {
+    "name": "HistoricalTrade Sample"
+  },
+  {
+    "name": "HorizontalAlignment Sample"
+  },
+  {
+    "name": "HorizontalLine Sample"
+  },
+  {
+    "name": "IIndicatorsAccessor Sample"
+  },
+  {
+    "name": "Image Sample"
+  },
+  {
+    "name": "Indicator Area Sample"
+  },
+  {
+    "name": "Indicator Data Series Sample"
+  },
+  {
+    "name": "IndicatorAreaAddedEventArgs Sample"
+  },
+  {
+    "name": "IndicatorAreaEventArgs Sample"
+  },
+  {
+    "name": "IndicatorAreaRemovedEventArgs Sample"
+  },
+  {
+    "name": "IndicatorTitles Sample"
+  },
+  {
+    "name": "Key Sample"
   }
 ]
