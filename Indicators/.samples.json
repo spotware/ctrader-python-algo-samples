@@ -259,5 +259,86 @@
   },
   {
     "name": "Key Sample"
+  },
+  {
+    "name": "Levels Sample"
+  },
+  {
+    "name": "Line Shape Sample"
+  },
+  {
+    "name": "Line Stacking Strategy Sample"
+  },
+  {
+    "name": "Line Style Sample"
+  },
+  {
+    "name": "MA Cloud Sample"
+  },
+  {
+    "name": "Market Data Sample"
+  },
+  {
+    "name": "Market Depth Ladder"
+  },
+  {
+    "name": "Market Depth Sample"
+  },
+  {
+    "name": "Market Snapshot Sample"
+  },
+  {
+    "name": "MarketHours Sample"
+  },
+  {
+    "name": "ModifierKeys Sample"
+  },
+  {
+    "name": "Normalizing Volume Sample"
+  },
+  {
+    "name": "Notifications Sample"
+  },
+  {
+    "name": "Orientation Sample"
+  },
+  {
+    "name": "Output Attribute Sample"
+  },
+  {
+    "name": "Output Snapshot Sample"
+  },
+  {
+    "name": "Parameter Attribute Sample"
+  },
+  {
+    "name": "PenLineCap Sample"
+  },
+  {
+    "name": "PenLineJoin Sample"
+  },
+  {
+    "name": "PlotType Sample"
+  },
+  {
+    "name": "Polygon Sample"
+  },
+  {
+    "name": "Polyline Sample"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "Radio Button Sample"
+  },
+  {
+    "name": "RadioButtonEventArgs Sample"
+  },
+  {
+    "name": "Rectangle Corner Radius Sample"
+  },
+  {
+    "name": "Rectangle Shape Sample"
   }
 ]
