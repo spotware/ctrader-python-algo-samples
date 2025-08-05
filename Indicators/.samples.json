@@ -340,5 +340,89 @@
   },
   {
     "name": "Rectangle Shape Sample"
+  },
+  {
+    "name": "ScrollBarVisibility Sample"
+  },
+  {
+    "name": "ScrollViewer Sample"
+  },
+  {
+    "name": "Server Sample"
+  },
+  {
+    "name": "SmoothMouseMove Sample"
+  },
+  {
+    "name": "StackPanel Sample"
+  },
+  {
+    "name": "Stretch Sample"
+  },
+  {
+    "name": "StretchDirection Sample"
+  },
+  {
+    "name": "Style Sample"
+  },
+  {
+    "name": "Symbol Sample"
+  },
+  {
+    "name": "SymbolInfo Sample"
+  },
+  {
+    "name": "Symbols Sample"
+  },
+  {
+    "name": "SymbolTickEventArgs Sample"
+  },
+  {
+    "name": "TextAlignment Sample"
+  },
+  {
+    "name": "TextBlock Sample"
+  },
+  {
+    "name": "TextBox Sample"
+  },
+  {
+    "name": "TextTrimming Sample"
+  },
+  {
+    "name": "TextWrapping Sample"
+  },
+  {
+    "name": "Thickness Sample"
+  },
+  {
+    "name": "Tick Sample"
+  },
+  {
+    "name": "Ticks Sample"
+  },
+  {
+    "name": "TimeFrame Sample"
+  },
+  {
+    "name": "TimeSeries Sample"
+  },
+  {
+    "name": "TimeZone Sample"
+  },
+  {
+    "name": "ToggleButton Sample"
+  },
+  {
+    "name": "Trading Panel Sample"
+  },
+  {
+    "name": "TradingSession Sample"
+  },
+  {
+    "name": "UserTimeOffsetChangedEventArgs Sample"
+  },
+  {
+    "name": "VerticalAlignment Sample"
   }
 ]
