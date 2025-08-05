@@ -424,5 +424,32 @@
   },
   {
     "name": "VerticalAlignment Sample"
+  },
+  {
+    "name": "Watchlist Sample"
+  },
+  {
+    "name": "WatchlistAddedEventArgs Sample"
+  },
+  {
+    "name": "WatchlistRemovedEventArgs Sample"
+  },
+  {
+    "name": "WatchlistRenamedEventArgs Sample"
+  },
+  {
+    "name": "Watchlists Sample"
+  },
+  {
+    "name": "WatchlistSymbolAddedEventArgs Sample"
+  },
+  {
+    "name": "WatchlistSymbolRemovedEventArgs Sample"
+  },
+  {
+    "name": "WebSocket Sample"
+  },
+  {
+    "name": "WrapPanel Sample"
   }
 ]
