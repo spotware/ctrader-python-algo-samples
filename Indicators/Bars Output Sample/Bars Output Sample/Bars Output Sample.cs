@@ -3,7 +3,9 @@ using cAlgo.API;
 
 namespace cAlgo.Indicators;
 
-[Indicator(AccessRights = AccessRights.None, IsOverlay = true)]
+// You can set IsOverlay to true if you want to show the bars output
+// in main chart panel.
+[Indicator(AccessRights = AccessRights.None, IsOverlay = false)]
 public partial class BarsOutputSample : Indicator
 {
     [Parameter("EMA Periods", DefaultValue = 9)]
