@@ -41,9 +41,6 @@ public partial class LinearRegressionForecastSample
 
                     dynamic pythonClass = scope.Get(className);
                     _robot = new RobotBridge(pythonClass());
-
-                    Positions.Closed += OnPositionClosed;
-                    Positions.Opened += OnPositionOpened;
                     
                     _robot.OnStart();
                 }
@@ -72,9 +69,6 @@ public partial class LinearRegressionForecastSample
 
         using (Py.GIL())
             _robot.OnStop();
-
-        Positions.Closed -= OnPositionClosed;
-        Positions.Opened -= OnPositionOpened;
     }
 
     protected override void OnBar()
@@ -93,24 +87,6 @@ public partial class LinearRegressionForecastSample
 
         using (Py.GIL())
             _robot.OnBarClosed();
-    }
-
-    private void OnPositionClosed(PositionClosedEventArgs args)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionClosed(args.Position);
-    }
-
-    private void OnPositionOpened(PositionOpenedEventArgs args)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionOpened(args.Position);
     }
 
     private bool CanExecutePythonAlgorithm()
