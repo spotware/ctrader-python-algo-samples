@@ -69,7 +69,7 @@ public partial class ChartDisplaySettingsSample : Robot
 
         using (Py.GIL())
             _robot.OnStop();
-            }
+    }
 
     protected override void OnBar()
     {

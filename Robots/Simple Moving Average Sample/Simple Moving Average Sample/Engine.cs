@@ -89,26 +89,6 @@ public partial class SimpleMovingAverageSample
             _robot.OnBarClosed();
     }
 
-    [Obsolete("Subscribe to Positions.Closed event instead")]
-    protected override void OnPositionClosed(Position position)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionClosed(position);
-    }
-
-    [Obsolete("Subscribe to Positions.Closed event instead")]
-    protected override void OnPositionOpened(Position openedPosition)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionOpened(openedPosition);
-    }
-
     private bool CanExecutePythonAlgorithm()
     {
         if (_pythonIsSupported == false)
