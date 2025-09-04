@@ -9,8 +9,6 @@ internal class RobotBridge
     private readonly SafeExecuteMethodProxy _onTickProxy;
     private readonly SafeExecuteMethodProxy _onStopProxy;
     private readonly SafeExecuteMethodProxy _onBarProxy;
-    private readonly SafeExecuteMethodProxy _onPositionClosedProxy;
-    private readonly SafeExecuteMethodProxy _onPositionOpenedProxy;
     private readonly SafeExecuteMethodProxy _onBarClosedProxy;
     private readonly SafeExecuteMethodProxy _onTimerProxy;
 
@@ -21,8 +19,6 @@ internal class RobotBridge
         _onStopProxy = new SafeExecuteMethodProxy(objectInstance, "on_stop");
         _onBarProxy = new SafeExecuteMethodProxy(objectInstance, "on_bar");
         _onBarClosedProxy = new SafeExecuteMethodProxy(objectInstance, "on_bar_closed");
-        _onPositionClosedProxy = new SafeExecuteMethodProxy(objectInstance, "on_position_closed");
-        _onPositionOpenedProxy = new SafeExecuteMethodProxy(objectInstance, "on_position_opened");
         _onTimerProxy = new SafeExecuteMethodProxy(objectInstance, "on_timer");
     }
 
@@ -54,15 +50,5 @@ internal class RobotBridge
     internal void OnTimer()
     {
         _onTimerProxy.Invoke();
-    }
-    
-    internal void OnPositionClosed(Position position)
-    {
-        _onPositionClosedProxy.Invoke(position);
-    }
-
-    internal void OnPositionOpened(Position openedPosition)
-    {
-        _onPositionOpenedProxy.Invoke(openedPosition);
     }
 }
