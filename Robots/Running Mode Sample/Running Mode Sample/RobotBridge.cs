@@ -12,8 +12,6 @@ internal class RobotBridge : BaseBridge
     private readonly SafeExecuteMethodProxy _onBarProxy;
     private readonly SafeExecuteMethodProxy _onBarClosedProxy;
     private readonly SafeExecuteMethodWithResultProxy<double> _getFitnessProxy;
-    private readonly SafeExecuteMethodProxy _onPositionClosedProxy;
-    private readonly SafeExecuteMethodProxy _onPositionOpenedProxy;
 
     internal RobotBridge(PyObject objectInstance)
         : base(objectInstance)
@@ -26,8 +24,6 @@ internal class RobotBridge : BaseBridge
         _onBarProxy = new SafeExecuteMethodProxy(objectInstance, "on_bar");
         _getFitnessProxy = new SafeExecuteMethodWithResultProxy<double>(objectInstance, "get_fitness", pr => pr.ToDouble(numberFormatInfo), _ => 0);
         _onBarClosedProxy = new SafeExecuteMethodProxy(objectInstance, "on_bar_closed");
-        _onPositionClosedProxy = new SafeExecuteMethodProxy(objectInstance, "on_position_closed");
-        _onPositionOpenedProxy = new SafeExecuteMethodProxy(objectInstance, "on_position_opened");
     }
 
     internal void OnStart()
@@ -53,16 +49,6 @@ internal class RobotBridge : BaseBridge
     internal void OnBarClosed()
     {
         _onBarClosedProxy.Invoke();
-    }
-
-    internal void OnPositionClosed(Position position)
-    {
-        _onPositionClosedProxy.Invoke(position);
-    }
-
-    internal void OnPositionOpened(Position openedPosition)
-    {
-        _onPositionOpenedProxy.Invoke(openedPosition);
     }
     
     internal double GetFitness(GetFitnessArgs args)

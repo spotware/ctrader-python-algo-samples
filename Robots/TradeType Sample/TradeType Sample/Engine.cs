@@ -42,9 +42,6 @@ public partial class TradeTypeSample : Robot
                     dynamic pythonClass = scope.Get(className);
                     _robot = new RobotBridge(pythonClass());
 
-                    Positions.Closed += OnPositionClosed;
-                    Positions.Opened += OnPositionOpened;
-
                     _robot.OnStart();
                 }
                 catch (Exception ex)
@@ -72,9 +69,6 @@ public partial class TradeTypeSample : Robot
 
         using (Py.GIL())
             _robot.OnStop();
-
-        Positions.Closed -= OnPositionClosed;
-        Positions.Opened -= OnPositionOpened;
     }
 
     protected override void OnBar()
@@ -117,24 +111,6 @@ public partial class TradeTypeSample : Robot
     {
         using (Py.GIL())
             return _robot.GetFitness(args);
-    }
-
-    private void OnPositionClosed(PositionClosedEventArgs args)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionClosed(args.Position);
-    }
-
-    private void OnPositionOpened(PositionOpenedEventArgs args)
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnPositionOpened(args.Position);
     }
 
     private bool CanExecutePythonAlgorithm()
