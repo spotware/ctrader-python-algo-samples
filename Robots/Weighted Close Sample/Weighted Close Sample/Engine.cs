@@ -120,6 +120,9 @@ public partial class WeightedCloseSample
             (version.Major > 5 || version.Major == 5 && version.Minor >= 7))
             return true;
 
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+            return true;
+
         return false;
     }
 }
