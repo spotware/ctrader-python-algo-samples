@@ -1,0 +1,170 @@
+using cAlgo.API;
+using Python.Runtime;
+using System;
+using System.Runtime.InteropServices;
+
+namespace cAlgo.Robots;
+
+public partial class SampleSARTrailingStop : Robot
+{
+    private RobotBridge _robot;
+    private const string MainPythonFile = "Sample SAR Trailing Stop_main.py";
+    private bool? _pythonIsSupported;
+
+    protected override void OnStart()
+    {
+        if (!CanExecutePythonAlgorithm())
+        {
+            Stop();
+            return;
+        }
+
+        EngineHelper.Initialize(this, Print);
+
+        using (Py.GIL())
+        {
+            var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
+            var className = nameof(SampleSARTrailingStop);
+
+            using (var scope = Py.CreateScope())
+            {
+                scope.Set("currentAssembly", System.Reflection.Assembly.GetExecutingAssembly());
+
+                try
+                {
+                    scope.Exec(code);
+                    if (!scope.Contains(className))
+                    {
+                        Print($"Error: Python class '{className}' not found in the module!");
+                        throw new InvalidOperationException($"Python class '{className}' not found in the module");
+                    }
+
+                    dynamic pythonClass = scope.Get(className);
+                    _robot = new RobotBridge(pythonClass());
+
+                    Positions.Closed += OnPositionClosed;
+                    Positions.Opened += OnPositionOpened;
+
+                    _robot.OnStart();
+                }
+                catch (Exception ex)
+                {
+                    Print($"Error initializing Python: {ex.Message}\nStack trace: {ex.StackTrace}");
+                    throw;
+                }
+            }
+        }
+    }
+
+    protected override void OnTick()
+    {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
+        using (Py.GIL())
+            _robot.OnTick();
+    }
+
+    protected override void OnStop()
+    {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
+        using (Py.GIL())
+            _robot.OnStop();
+
+        Positions.Closed -= OnPositionClosed;
+        Positions.Opened -= OnPositionOpened;
+    }
+
+    protected override void OnBar()
+    {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
+        using (Py.GIL())
+            _robot.OnBar();
+    }
+
+    protected override void OnBarClosed()
+    {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
+        using (Py.GIL())
+            _robot.OnBarClosed();
+    }
+
+    protected override void OnTimer()
+    {
+        if (!CanExecutePythonAlgorithm())
+            return;
+
+        using (Py.GIL())
+            _robot.OnTimer();
+    }
+
+    protected override void OnException(Exception exception)
+    {        
+        if (!CanExecutePythonAlgorithm())
+        {
+            base.OnException(exception);
+            return;
+        }
+
+        using (Py.GIL())
+            _robot.OnException(exception);
+    }
+
+    protected override double GetFitness(GetFitnessArgs args)
+    {
+        using (Py.GIL())
+            return _robot.GetFitness(args);
+    }
+
+    private void OnPositionClosed(PositionClosedEventArgs args)
+    {
+        using (Py.GIL())
+            _robot.OnPositionClosed(args.Position);
+    }
+
+    private void OnPositionOpened(PositionOpenedEventArgs args)
+    {
+        using (Py.GIL())
+            _robot.OnPositionOpened(args.Position);
+    }
+
+    private bool CanExecutePythonAlgorithm()
+    {
+        if (_pythonIsSupported == false)
+            return false;
+
+        if (_pythonIsSupported == true)
+            return true;
+
+        if (!IsPlatformSupported())
+        {
+            Print("Python algorithms are not supported in the current version of cTrader");
+            _pythonIsSupported = false;
+            return false;
+        }
+
+        _pythonIsSupported = true;
+        return true;
+    }
+
+    private bool IsPlatformSupported()
+    {
+        var version = Application.Version;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) &&
+            (version.Major > 5 || (version.Major == 5 && version.Minor >= 4)))
+            return true;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) &&
+            (version.Major > 5 || (version.Major == 5 && version.Minor >= 7)))
+            return true;
+
+        return false;
+    }
+}

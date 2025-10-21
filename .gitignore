@@ -362,16 +362,6 @@ healthchecksdb
 /Indicators/Licensing Sample
 /Indicators/MA Cross Alert
 /Indicators/MACD Histogram Alert
-/Indicators/Sample Standard Deviation
-/Indicators/Sample SMA
-/Indicators/Sample Reference SMA
-/Indicators/Sample Price Channels
-/Indicators/Sample Envelopes Cloud
-/Indicators/Sample EMA
-/Indicators/Sample DeMarker
-/Indicators/Sample Bulls Power
-/Indicators/Sample Bears Power
-/Indicators/Sample Alligator
 /Indicators/RSI Alert Sample
 /Indicators/ROC
 /Indicators/psar
@@ -393,16 +383,6 @@ healthchecksdb
 /Indicators/ADX Interpreter.algo
 /Indicators/Advanced Volume.algo
 /Indicators/ADR Pro.algo
-/Indicators/Sample Standard Deviation.algo
-/Indicators/Sample SMA.algo
-/Indicators/Sample Reference SMA.algo
-/Indicators/Sample Price Channels.algo
-/Indicators/Sample Envelopes Cloud.algo
-/Indicators/Sample EMA.algo
-/Indicators/Sample DeMarker.algo
-/Indicators/Sample Bulls Power.algo
-/Indicators/Sample Bears Power.algo
-/Indicators/Sample Alligator.algo
 /Indicators/Time zone Sample.algo
 /Indicators/RSI Alert Sample.algo
 /Indicators/Moving Average Type Sample.algo
@@ -412,32 +392,8 @@ healthchecksdb
 /Indicators/Daily Separator Line Sample
 /Robots/Bar Breakout Trading Sample
 /Robots/Licensing Sample
-/Robots/Sample Advanced Take Profit
-/Robots/Sample Break Even
-/Robots/Sample Breakout cBot
-/Robots/Sample cBot Reference SMA
-/Robots/Sample Close Profitable Positions cBot
-/Robots/Sample Hotkey Trading
-/Robots/Sample Lines Trader
-/Robots/Sample Martingale cBot
-/Robots/Sample RSI cBot
-/Robots/Sample SAR Trailing Stop
-/Robots/Sample Trading Panel
-/Robots/Sample Trend cBot
 /Robots/Bar Breakout Trading Sample.algo
 /Robots/Licensing Sample.algo
-/Robots/Sample Trend cBot.algo
-/Robots/Sample Trading Panel.algo
-/Robots/Sample SAR Trailing Stop.algo
-/Robots/Sample RSI cBot.algo
-/Robots/Sample Martingale cBot.algo
-/Robots/Sample Lines Trader.algo
-/Robots/Sample Hotkey Trading.algo
-/Robots/Sample Close Profitable Positions cBot.algo
-/Robots/Sample cBot Reference SMA.algo
-/Robots/Sample Breakout cBot.algo
-/Robots/Sample Break Even.algo
-/Robots/Sample Advanced Take Profit.algo
 /Robots/Trading Hotkeys.algo
 /Robots/Trading Hotkeys
 /Robots/Tooltip.algo
