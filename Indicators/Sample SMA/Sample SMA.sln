@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample cBot Reference SMA", "Sample cBot Reference SMA\Sample cBot Reference SMA.csproj", "{4BB3A0C7-6A70-4779-B155-FF905A6588C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample SMA", "Sample SMA\Sample SMA.csproj", "{dd90b551-2336-46bc-aaf4-f6dfe331f8a2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4bb3a0c7-6a70-4779-b155-ff905a6588c2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4bb3a0c7-6a70-4779-b155-ff905a6588c2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4bb3a0c7-6a70-4779-b155-ff905a6588c2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4bb3a0c7-6a70-4779-b155-ff905a6588c2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{dd90b551-2336-46bc-aaf4-f6dfe331f8a2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{dd90b551-2336-46bc-aaf4-f6dfe331f8a2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{dd90b551-2336-46bc-aaf4-f6dfe331f8a2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{dd90b551-2336-46bc-aaf4-f6dfe331f8a2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
