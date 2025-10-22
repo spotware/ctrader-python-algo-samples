@@ -2,33 +2,29 @@ using cAlgo.API;
 using Python.Runtime;
 using System;
 using System.Runtime.InteropServices;
-using cAlgo.Indicators;
 
-namespace cAlgo.Robots;
+namespace cAlgo.Indicators;
 
-public partial class SamplecBotReferenceSMA : Robot
+public partial class SampleReferenceSMA : Indicator
 {
-    private RobotBridge _robot;
-    private const string MainPythonFile = "Sample cBot Reference SMA_main.py";
+    private IndicatorBridge _indicator;
+    private const string MainPythonFile = "Sample Reference SMA_main.py";
     private bool? _pythonIsSupported;
 
-    protected override void OnStart()
+    protected override void Initialize()
     {
         // This line is added to load referenced custom indicator assembly
         Print($"Loading indicator assembly: {typeof(SampleSMA).Assembly.FullName}");
 
         if (!CanExecutePythonAlgorithm())
-        {
-            Stop();
             return;
-        }
 
         EngineHelper.Initialize(this, Print);
 
         using (Py.GIL())
         {
             var code = EmbeddedResourceProvider.ReadText(MainPythonFile);
-            var className = nameof(SamplecBotReferenceSMA);
+            var className = nameof(SampleReferenceSMA);;
 
             using (var scope = Py.CreateScope())
             {
@@ -44,12 +40,9 @@ public partial class SamplecBotReferenceSMA : Robot
                     }
 
                     dynamic pythonClass = scope.Get(className);
-                    _robot = new RobotBridge(pythonClass());
+                    _indicator = new IndicatorBridge(pythonClass());
 
-                    Positions.Closed += OnPositionClosed;
-                    Positions.Opened += OnPositionOpened;
-
-                    _robot.OnStart();
+                    _indicator.Initialize();
                 }
                 catch (Exception ex)
                 {
@@ -60,43 +53,22 @@ public partial class SamplecBotReferenceSMA : Robot
         }
     }
 
-    protected override void OnTick()
+    public override void Calculate(int index)
     {
         if (!CanExecutePythonAlgorithm())
             return;
 
         using (Py.GIL())
-            _robot.OnTick();
+            _indicator.Calculate(index);
     }
 
-    protected override void OnStop()
+    protected override void OnDestroy()
     {
         if (!CanExecutePythonAlgorithm())
             return;
 
         using (Py.GIL())
-            _robot.OnStop();
-
-        Positions.Closed -= OnPositionClosed;
-        Positions.Opened -= OnPositionOpened;
-    }
-
-    protected override void OnBar()
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnBar();
-    }
-
-    protected override void OnBarClosed()
-    {
-        if (!CanExecutePythonAlgorithm())
-            return;
-
-        using (Py.GIL())
-            _robot.OnBarClosed();
+            _indicator.OnDestroy();
     }
 
     protected override void OnTimer()
@@ -105,11 +77,11 @@ public partial class SamplecBotReferenceSMA : Robot
             return;
 
         using (Py.GIL())
-            _robot.OnTimer();
+            _indicator.OnTimer();
     }
 
     protected override void OnException(Exception exception)
-    {        
+    {
         if (!CanExecutePythonAlgorithm())
         {
             base.OnException(exception);
@@ -117,25 +89,7 @@ public partial class SamplecBotReferenceSMA : Robot
         }
 
         using (Py.GIL())
-            _robot.OnException(exception);
-    }
-
-    protected override double GetFitness(GetFitnessArgs args)
-    {
-        using (Py.GIL())
-            return _robot.GetFitness(args);
-    }
-
-    private void OnPositionClosed(PositionClosedEventArgs args)
-    {
-        using (Py.GIL())
-            _robot.OnPositionClosed(args.Position);
-    }
-
-    private void OnPositionOpened(PositionOpenedEventArgs args)
-    {
-        using (Py.GIL())
-            _robot.OnPositionOpened(args.Position);
+            _indicator.OnException(exception);
     }
 
     private bool CanExecutePythonAlgorithm()
@@ -167,6 +121,9 @@ public partial class SamplecBotReferenceSMA : Robot
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) &&
             (version.Major > 5 || (version.Major == 5 && version.Minor >= 7)))
+            return true;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
             return true;
 
         return false;

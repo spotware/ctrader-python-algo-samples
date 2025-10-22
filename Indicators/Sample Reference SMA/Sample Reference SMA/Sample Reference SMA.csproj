@@ -26,9 +26,9 @@
     <PackageReference Include="pythonnet" Version="3.0.5" />
   </ItemGroup>
 
-    <ItemGroup>
-      <Reference Include="Sample SMA">
-        <HintPath>..\..\..\Indicators\Sample SMA\Sample SMA\bin\Release\net6.0\Sample SMA.dll</HintPath>
-      </Reference>
-    </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Sample SMA">
+      <HintPath>..\..\Sample SMA\Sample SMA\bin\Release\net6.0\Sample SMA.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
