@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accumulative Swing Index", "Accumulative Swing Index\Accumulative Swing Index.csproj", "{54ccc5a8-99de-4c92-b175-6777792a100f}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54ccc5a8-99de-4c92-b175-6777792a100f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54ccc5a8-99de-4c92-b175-6777792a100f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54ccc5a8-99de-4c92-b175-6777792a100f}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54ccc5a8-99de-4c92-b175-6777792a100f}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
