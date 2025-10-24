@@ -1,5 +1,8 @@
 [
   {
+    "name": "Accelerator Oscillator"
+  },
+  {
     "name": "Access Right Sample"
   },
   {
@@ -9,13 +12,34 @@
     "name": "AccountType Sample"
   },
   {
+    "name": "Accumulation Distribution"
+  },
+  {
+    "name": "Accumulative Swing Index"
+  },
+  {
     "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "Alligator"
   },
   {
     "name": "Andrews Pitchfork Sample"
   },
   {
     "name": "Application Sample"
+  },
+  {
+    "name": "Aroon"
+  },
+  {
+    "name": "Average Directional Movement Index Rating"
+  },
+  {
+    "name": "Average True Range"
+  },
+  {
+    "name": "Awesome Oscillator"
   },
   {
     "name": "Bar Sample"
@@ -33,6 +57,12 @@
     "name": "BarsTickEventArgs Sample"
   },
   {
+    "name": "Bears Power"
+  },
+  {
+    "name": "Bollinger Bands"
+  },
+  {
     "name": "Bollinger Bands Cloud Sample"
   },
   {
@@ -42,6 +72,9 @@
     "name": "Border Sample"
   },
   {
+    "name": "Bulls Power"
+  },
+  {
     "name": "Button Sample"
   },
   {
@@ -49,6 +82,21 @@
   },
   {
     "name": "Canvas Sample"
+  },
+  {
+    "name": "Center Of Gravity"
+  },
+  {
+    "name": "Chaikin Money Flow"
+  },
+  {
+    "name": "Chaikin Oscillator"
+  },
+  {
+    "name": "Chaikin Volatility"
+  },
+  {
+    "name": "Chande Momentum Oscillator"
   },
   {
     "name": "Character Casing Sample"
@@ -168,6 +216,9 @@
     "name": "ColorThemeChangeEventArgs Sample"
   },
   {
+    "name": "Commodity Channel Index"
+  },
+  {
     "name": "Control Alignment Sample"
   },
   {
@@ -180,10 +231,28 @@
     "name": "Custom Control Sample"
   },
   {
+    "name": "Cyber Cycle"
+  },
+  {
     "name": "Data Series Sample"
   },
   {
+    "name": "DeMarker"
+  },
+  {
+    "name": "Detrended Price Oscillator"
+  },
+  {
+    "name": "Directional Movement System"
+  },
+  {
     "name": "Dock Panel Sample"
+  },
+  {
+    "name": "Donchian Channel"
+  },
+  {
+    "name": "Double Exponential Moving Average"
   },
   {
     "name": "Ellipse Shape Sample"
