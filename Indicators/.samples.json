@@ -255,10 +255,25 @@
     "name": "Double Exponential Moving Average"
   },
   {
+    "name": "Ease Of Movement"
+  },
+  {
+    "name": "Elder Force Index"
+  },
+  {
+    "name": "Elder Ray Index"
+  },
+  {
     "name": "Ellipse Shape Sample"
   },
   {
+    "name": "Envelopes"
+  },
+  {
     "name": "Equidistant Channel Sample"
+  },
+  {
+    "name": "Exponential Moving Average"
   },
   {
     "name": "Fibonacci Expansion Sample"
@@ -279,7 +294,19 @@
     "name": "Font Sample"
   },
   {
+    "name": "Fractal Adaptive Moving Average"
+  },
+  {
+    "name": "Fractal Chaos Bands"
+  },
+  {
+    "name": "Fractals"
+  },
+  {
     "name": "Functions Sample"
+  },
+  {
+    "name": "Gator Oscillator"
   },
   {
     "name": "Grid Sample"
@@ -297,6 +324,12 @@
     "name": "GridUnitType Sample"
   },
   {
+    "name": "High Minus Low"
+  },
+  {
+    "name": "Historical Volatility"
+  },
+  {
     "name": "HistoricalTrade Sample"
   },
   {
@@ -304,6 +337,12 @@
   },
   {
     "name": "HorizontalLine Sample"
+  },
+  {
+    "name": "Hull Moving Average"
+  },
+  {
+    "name": "Ichimoku Kinko Hyo"
   },
   {
     "name": "IIndicatorsAccessor Sample"
@@ -330,6 +369,12 @@
     "name": "IndicatorTitles Sample"
   },
   {
+    "name": "Kaufman Adaptive Moving Average"
+  },
+  {
+    "name": "Keltner Channels"
+  },
+  {
     "name": "Key Sample"
   },
   {
@@ -345,7 +390,28 @@
     "name": "Line Style Sample"
   },
   {
+    "name": "Linear Regression Forecast"
+  },
+  {
+    "name": "Linear Regression Intercept"
+  },
+  {
+    "name": "Linear Regression RSquared"
+  },
+  {
+    "name": "Linear Regression Slope"
+  },
+  {
     "name": "MA Cloud Sample"
+  },
+  {
+    "name": "Macd Crossover"
+  },
+  {
+    "name": "Macd Histogram"
+  },
+  {
+    "name": "Macd Oscillator Moving Average"
   },
   {
     "name": "Market Data Sample"
@@ -357,13 +423,31 @@
     "name": "Market Depth Sample"
   },
   {
+    "name": "Market Facilitation Index"
+  },
+  {
     "name": "Market Snapshot Sample"
   },
   {
     "name": "MarketHours Sample"
   },
   {
+    "name": "Mass Index"
+  },
+  {
+    "name": "Median Price"
+  },
+  {
     "name": "ModifierKeys Sample"
+  },
+  {
+    "name": "Momentum Oscillator"
+  },
+  {
+    "name": "Money Flow Index"
+  },
+  {
+    "name": "Negative Volume Index"
   },
   {
     "name": "Normalizing Volume Sample"
