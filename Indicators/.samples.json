@@ -456,13 +456,22 @@
     "name": "Notifications Sample"
   },
   {
+    "name": "On Balance Volume"
+  },
+  {
     "name": "Orientation Sample"
+  },
+  {
+    "name": "Oscillator Moving Average"
   },
   {
     "name": "Output Attribute Sample"
   },
   {
     "name": "Output Snapshot Sample"
+  },
+  {
+    "name": "Parabolic SAR"
   },
   {
     "name": "Parameter Attribute Sample"
@@ -483,7 +492,22 @@
     "name": "Polyline Sample"
   },
   {
+    "name": "Polynomial Regression Channels"
+  },
+  {
     "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "Positive Volume Index"
+  },
+  {
+    "name": "Price Oscillator"
+  },
+  {
+    "name": "Price ROC"
+  },
+  {
+    "name": "Price Volume Trend"
   },
   {
     "name": "Radio Button Sample"
@@ -492,10 +516,19 @@
     "name": "RadioButtonEventArgs Sample"
   },
   {
+    "name": "Rainbow Oscillator"
+  },
+  {
     "name": "Rectangle Corner Radius Sample"
   },
   {
     "name": "Rectangle Shape Sample"
+  },
+  {
+    "name": "Relative Strength Index"
+  },
+  {
+    "name": "Relative Vigor Index"
   },
   {
     "name": "Sample Alligator"
@@ -537,10 +570,19 @@
     "name": "Server Sample"
   },
   {
+    "name": "Simple Moving Average"
+  },
+  {
     "name": "SmoothMouseMove Sample"
   },
   {
     "name": "StackPanel Sample"
+  },
+  {
+    "name": "Standard Deviation"
+  },
+  {
+    "name": "Stochastic Oscillator"
   },
   {
     "name": "Stretch Sample"
@@ -550,6 +592,12 @@
   },
   {
     "name": "Style Sample"
+  },
+  {
+    "name": "Supertrend"
+  },
+  {
+    "name": "Swing Index"
   },
   {
     "name": "Symbol Sample"
@@ -585,7 +633,13 @@
     "name": "Tick Sample"
   },
   {
+    "name": "Tick Volume"
+  },
+  {
     "name": "Ticks Sample"
+  },
+  {
+    "name": "Time Series Moving Average"
   },
   {
     "name": "TimeFrame Sample"
@@ -600,16 +654,52 @@
     "name": "ToggleButton Sample"
   },
   {
+    "name": "Trade Volume Index"
+  },
+  {
     "name": "Trading Panel Sample"
   },
   {
     "name": "TradingSession Sample"
   },
   {
+    "name": "Triangular Moving Average"
+  },
+  {
+    "name": "Triple Exponential Moving Average"
+  },
+  {
+    "name": "Trix"
+  },
+  {
+    "name": "True Range"
+  },
+  {
+    "name": "Typical Price"
+  },
+  {
+    "name": "Ultimate Oscillator"
+  },
+  {
     "name": "UserTimeOffsetChangedEventArgs Sample"
   },
   {
+    "name": "Variable Index Dynamic Average"
+  },
+  {
+    "name": "Vertical Horizontal Filter"
+  },
+  {
     "name": "VerticalAlignment Sample"
+  },
+  {
+    "name": "Vidya"
+  },
+  {
+    "name": "Volume Oscillator"
+  },
+  {
+    "name": "Volume ROC"
   },
   {
     "name": "Watchlist Sample"
@@ -634,6 +724,21 @@
   },
   {
     "name": "WebSocket Sample"
+  },
+  {
+    "name": "Weighted Close"
+  },
+  {
+    "name": "Weighted Moving Average"
+  },
+  {
+    "name": "Welles Wilder Smoothing"
+  },
+  {
+    "name": "Williams Accumulation Distribution"
+  },
+  {
+    "name": "Williams PctR"
   },
   {
     "name": "WrapPanel Sample"
