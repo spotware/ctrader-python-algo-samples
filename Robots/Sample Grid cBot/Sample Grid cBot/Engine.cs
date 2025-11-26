@@ -158,11 +158,14 @@ public partial class SampleGridcBot : Robot
         var version = Application.Version;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) &&
-            (version.Major > 5 || (version.Major == 5 && version.Minor >= 4)))
+            (version.Major > 5 || version.Major == 5 && version.Minor >= 4))
             return true;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) &&
-            (version.Major > 5 || (version.Major == 5 && version.Minor >= 7)))
+            (version.Major > 5 || version.Major == 5 && version.Minor >= 7))
+            return true;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
             return true;
 
         return false;
