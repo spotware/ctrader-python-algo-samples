@@ -105,7 +105,7 @@ public partial class SampleCloseProfitablePositionscBot : Robot
     }
 
     protected override void OnException(Exception exception)
-    {        
+    {
         if (!CanExecutePythonAlgorithm())
         {
             base.OnException(exception);
@@ -163,6 +163,9 @@ public partial class SampleCloseProfitablePositionscBot : Robot
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) &&
             (version.Major > 5 || (version.Major == 5 && version.Minor >= 7)))
+            return true;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
             return true;
 
         return false;
